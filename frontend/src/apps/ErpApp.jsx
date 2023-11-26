@@ -14,7 +14,7 @@ import AppRouter from '@/router/AppRouter';
 
 import useIsMobile from '@/hooks/useIsMobile';
 
-export default function ErpCrmApp() {
+export default function FitSync() {
   const { Content } = Layout;
 
   const { state: stateApp } = useAppContext();

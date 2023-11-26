@@ -5,8 +5,8 @@ import { Button, Drawer, Layout, Menu } from 'antd';
 import { useAppContext } from '@/context/appContext';
 
 import useLanguage from '@/locale/useLanguage';
-import logoIcon from '@/style/images/logo-icon.svg';
-import logoText from '@/style/images/logo-text.svg';
+import logoIcon from '@/style/images/logo-icon.png';
+// import logoText from '@/style/images/logo-icon.svg';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -164,15 +164,17 @@ function Sidebar({ collapsible }) {
       theme={'light'}
     >
       <div className="logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-        <img src={logoIcon} alt="Logo" style={{ height: '32px' }} />
+        {/* <img src={logoIcon} alt="Logo" style={{ height: '32px' }} /> */}
 
         {!showLogoApp && (
           <img
-            src={logoText}
+            // eslint-disable-next-line no-undef
+            src={logoIcon}
             alt="Logo"
-            style={{ marginTop: '3px', marginLeft: '10px', height: '29px' }}
+            style={{  marginLeft: '10px', height: '70px' }}
           />
         )}
+        
       </div>
       <Menu items={items} mode="inline" theme={'light'} />
     </Sider>
