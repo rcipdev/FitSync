@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import * as React from 'react';
-import { render, screen, act } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 
 import { Provider } from 'react-redux';
 
@@ -11,11 +12,11 @@ import FeedStoreMock from '@/test/mocksComponent/FeedStoreMock';
 import { crud } from '@/redux/crud/actions';
 
 const data = {
-  company: 'IDURAR',
-  managerSurname: 'Lalami ',
-  managerName: 'Salah Eddine',
+  company: 'FitSync',
+  managerSurname: 'Pravasi ',
+  managerName: 'Ruchik',
   email: 'test@gmail.com',
-  phone: '0777 777 777',
+  phone: '009 900 9900',
 };
 
 const readColumns = [
@@ -54,7 +55,9 @@ const RenderedComponent = () => {
   );
 };
 
+// eslint-disable-next-line no-undef
 describe('Integration Testing : Read Component', () => {
+  // eslint-disable-next-line no-undef
   test('renders read component', () => {
     const { debug } = render(<RenderedComponent />);
     act(() => debug());

@@ -93,9 +93,9 @@ const sendViaApi = async (email, name, filePath) => {
 
   // Send the mail using the send method
   const data = await resend.emails.send({
-    from: 'Idurar@onfranciis.dev',
+    from: 'ruchikamitkumar.pravasi@sjsu.edu',
     to: email,
-    subject: 'Quote From Idurar',
+    subject: 'Invoice From FitSync',
     attachments: [
       {
         filename: 'Quote.pdf',

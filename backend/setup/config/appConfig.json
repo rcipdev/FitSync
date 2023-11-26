@@ -2,21 +2,21 @@
   {
     "settingCategory": "app_settings",
     "settingKey": "app_name",
-    "settingValue": "IDURAR ERP/CRM",
+    "settingValue": "",
     "valueType": "string",
     "isCoreSetting": true
   },
   {
     "settingCategory": "app_settings",
     "settingKey": "app_icon",
-    "settingValue": "https://www.idurarapp.com/Theme/idurar-no-code-app/assets/img/idurar-ai-no-code-app-logo.svg",
+    "settingValue": "",
     "valueType": "image",
     "isCoreSetting": true
   },
   {
     "settingCategory": "app_settings",
     "settingKey": "app_logo",
-    "settingValue": "https://www.idurarapp.com/Theme/idurar-no-code-app/assets/img/idurar-ai-no-code-app-logo.svg",
+    "settingValue": "",
     "valueType": "image",
     "isCoreSetting": true
   },

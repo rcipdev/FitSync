@@ -44,14 +44,14 @@
   "description": "Just you wait folks!",
   "main": "app.js",
   "keywords": [],
-  "author": "IDURAR",
+  "author": "Fitsync",
   "license": "Fair-code License",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idurar/idurar-erp-crm/.git"
+    "url": "git+https://github.com/rcipdev/FitSync/.git"
   },
   "bugs": {
-    "url": "https://github.com/idurar/idurar-erp-crm//issues"
+    "url": "https://github.com/rcipdev/FitSync/issues"
   },
-  "homepage": "https://github.com/idurar/idurar-erp-crm/#readme"
+  "homepage": "https://github.com/rcipdev/FitSync/#readme"
 }

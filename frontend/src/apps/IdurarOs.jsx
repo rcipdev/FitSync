@@ -9,7 +9,7 @@ import AuthRouter from '@/router/AuthRouter';
 
 const ErpApp = lazy(() => import('./ErpApp'));
 
-export default function IdurarOs() {
+export default function FitSync() {
   const { isLoggedIn } = useSelector(selectAuth);
 
   if (!isLoggedIn)

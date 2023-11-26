@@ -2,14 +2,14 @@
   {
     "settingCategory": "company_settings",
     "settingKey": "company_name",
-    "settingValue": "IDURAR",
+    "settingValue": "FitSync",
     "valueType": "string",
     "isCoreSetting": true
   },
   {
     "settingCategory": "company_settings",
     "settingKey": "company_logo",
-    "settingValue": "https://www.idurarapp.com/Theme/idurar-no-code-app/assets/img/idurar-ai-no-code-app-logo.svg",
+    "settingValue": "",
     "valueType": "image",
     "isCoreSetting": true
   },
@@ -23,7 +23,7 @@
   {
     "settingCategory": "company_settings",
     "settingKey": "company_email",
-    "settingValue": "hello@idurarapp.com",
+    "settingValue": "ruchikamitkumar.pravasi@sjsu.edu",
     "valueType": "string",
     "isCoreSetting": true
   },
@@ -44,7 +44,7 @@
   {
     "settingCategory": "company_settings",
     "settingKey": "company_website",
-    "settingValue": "www.idurarapp.com",
+    "settingValue": "",
     "valueType": "string",
     "isCoreSetting": true
   },
