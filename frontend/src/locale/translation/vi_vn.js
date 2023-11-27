@@ -49,7 +49,7 @@ const lang = {
   analytics: 'Phân tích',
   audit: 'Kiểm toán',
   email: 'Email',
-  phone: 'Điện thoại',
+  phone: 'Breakfast',
   address: 'Địa chỉ',
   city: 'Thành phố',
   state: 'Tiểu bang',
@@ -153,7 +153,7 @@ const lang = {
   add_new_product: 'Thêm sản phẩm mới',
   order_list: 'Danh sách đơn đặt hàng',
   add_new_order: 'Thêm đơn đặt hàng mới',
-advanced_settings: 'Cài đặt Nâng cao',
+  advanced_settings: 'Cài đặt Nâng cao',
   after: 'Sau',
   allowed_role: 'Vai trò được phép',
   app_name: 'Tên Ứng dụng',
@@ -276,7 +276,6 @@ advanced_settings: 'Cài đặt Nâng cao',
   staff_cru: 'Nhân viên (Tạo, Đọc, Cập nhật)',
   create_and_read_only: 'Tạo và Chỉ Đọc',
   read_only: 'Chỉ Đọc',
-
-}
+};
 
 export default lang;

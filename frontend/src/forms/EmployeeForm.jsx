@@ -100,8 +100,8 @@ export default function EmployeeForm() {
         <Input />
       </Form.Item>
       <Form.Item
-        name="department"
-        label={translate('Department')}
+        name="weight"
+        label={translate('Weight')}
         rules={[
           {
             required: true,
@@ -111,8 +111,8 @@ export default function EmployeeForm() {
         <Input />
       </Form.Item>
       <Form.Item
-        name="position"
-        label={translate('Position')}
+        name="relation"
+        label={translate('Relation')}
         rules={[
           {
             required: true,

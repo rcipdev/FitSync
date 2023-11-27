@@ -6,9 +6,31 @@ export default function LeadForm() {
   const translate = useLanguage();
   return (
     <>
+    <Form.Item
+        label={translate('Day')}
+        name="day"
+        rules={[
+          {
+            required: false,
+          },
+        ]}
+        initialValue={'Monday'}
+      >
+        <Select
+          options={[
+            { value: 'Monday', label: translate('Monday') },
+            { value: 'Tuesday', label: translate('Tuesday') },
+            { value: 'Wednesday', label: translate('Wednesday') },
+            { value: 'Thursday', label: translate('Thursday') },
+            { value: 'Friday', label: translate('Friday') },
+            { value: 'Saturday', label: translate('Saturday') },
+            { value: 'Sunday', label: translate('Sunday') },
+          ]}
+        ></Select>
+      </Form.Item>
       <Form.Item
-        label={translate('first name')}
-        name="firstName"
+        label={translate('Breakfast')}
+        name="breakfast"
         rules={[
           {
             required: true,
@@ -19,8 +41,8 @@ export default function LeadForm() {
       </Form.Item>
 
       <Form.Item
-        label={translate('last name')}
-        name="lastName"
+        label={translate('Lunch')}
+        name="lunch"
         rules={[
           {
             required: true,
@@ -31,8 +53,8 @@ export default function LeadForm() {
       </Form.Item>
 
       <Form.Item
-        label={translate('email')}
-        name="email"
+        label={translate('Snacks')}
+        name="snacks"
         rules={[
           {
             required: true,
@@ -43,46 +65,14 @@ export default function LeadForm() {
       </Form.Item>
 
       <Form.Item
-        label={translate('phone')}
-        name="phone"
+        label={translate('Dinner')}
+        name="dinner"
         rules={[
           {
             required: true,
           },
         ]}
       >
-        <Input type="tel" />
-      </Form.Item>
-
-      <Form.Item
-        label={translate('company')}
-        name="company"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label={translate('position in company')}
-        name="jobTitle"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item label={translate('address')} name="address">
-        <Input />
-      </Form.Item>
-
-      <Form.Item label={translate('country')} name="country">
         <Input />
       </Form.Item>
 
@@ -104,14 +94,6 @@ export default function LeadForm() {
             { value: 'not interested', label: translate('not interested') },
           ]}
         ></Select>
-      </Form.Item>
-
-      <Form.Item label={translate('note')} name="note">
-        <Input />
-      </Form.Item>
-
-      <Form.Item label={translate('source')} name="source">
-        <Input placeholder="ex: linkedin, website, ads..." />
       </Form.Item>
     </>
   );

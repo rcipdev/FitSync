@@ -10,33 +10,34 @@ export default function Lead() {
   const translate = useLanguage();
   const entity = 'lead';
   const searchConfig = {
-    displayLabels: ['firstname', 'company'],
-    searchFields: 'firstname,company',
+    displayLabels: ['Breakfast', 'company'],
+    searchFields: 'Breakfast,company',
     outputValue: '_id',
   };
   const entityDisplayLabels = ['number', 'company'];
 
   const readColumns = [
     {
-      title: translate('First Name'),
-      dataIndex: 'firstName',
+      title: translate('Day'),
+      dataIndex: 'day',
+
+    },
+    {
+      title: translate('Breakfast'),
+      dataIndex: 'breakfast',
     },
 
     {
-      title: translate('Last Name'),
-      dataIndex: 'lastName',
+      title: translate('Lunch'),
+      dataIndex: 'lunch',
     },
     {
-      title: translate('Company'),
-      dataIndex: 'company',
+      title: translate('Snacks'),
+      dataIndex: 'snacks',
     },
     {
-      title: translate('Email'),
-      dataIndex: 'email',
-    },
-    {
-      title: translate('Phone'),
-      dataIndex: 'phone',
+      title: translate('Dinner'),
+      dataIndex: 'dinner',
     },
     {
       title: translate('Status'),
@@ -46,24 +47,42 @@ export default function Lead() {
 
   const dataTableColumns = [
     {
-      title: translate('First Name'),
-      dataIndex: ['firstName'],
+      title: translate('Day'),
+      dataIndex: 'day',
+      render: (day) => {
+        let color =
+          day === 'Monday'
+            ? 'cyan'
+            : day === 'Tuesday'
+            ? 'blue'
+            : day === 'Wednesday'
+            ? 'green'
+            : day === 'Thursday'
+            ? 'orange'
+            : day === 'Friday'
+            ? 'red'
+            : day === 'Saturday'
+            ? 'yellow'
+            : day === 'Sunday'
+            ? 'violet'
+            : 'pink'
+        return <Tag color={color}>{day && translate(day)}</Tag>;
+      }, },
+    {
+      title: translate('Breakfast'),
+      dataIndex: ['breakfast'],
     },
     {
-      title: translate('Last Name'),
-      dataIndex: ['lastName'],
+      title: translate('Lunch'),
+      dataIndex: ['lunch'],
     },
     {
-      title: translate('Company'),
-      dataIndex: ['company'],
+      title: translate('Snacks'),
+      dataIndex: ['snacks'],
     },
     {
-      title: translate('Email'),
-      dataIndex: ['email'],
-    },
-    {
-      title: translate('Phone'),
-      dataIndex: ['phone'],
+      title: translate('Dinner'),
+      dataIndex: ['dinner'],
     },
     {
       title: translate('Status'),
@@ -82,17 +101,13 @@ export default function Lead() {
         return <Tag color={color}>{status && translate(status)}</Tag>;
       },
     },
-    {
-      title: translate('Created'),
-      dataIndex: 'created',
-      render: (date) => dayjs(date).format('DD/MM/YYYY'),
-    },
+
   ];
 
   const Labels = {
     PANEL_TITLE: translate('lead'),
-    DATATABLE_TITLE: translate('lead_list'),
-    ADD_NEW_ENTITY: translate('add_new_lead'),
+    DATATABLE_TITLE: translate('dine_dairy'),
+    ADD_NEW_ENTITY: translate('add_new_dine'),
     ENTITY_NAME: translate('lead'),
     CREATE_ENTITY: translate('save'),
     UPDATE_ENTITY: translate('update'),

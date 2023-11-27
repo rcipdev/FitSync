@@ -15,6 +15,7 @@ const lang = {
   next: 'Следващ',
   previous: 'Предишен',
   filter: 'Филтър',
+  foodIntake: 'Прием на храна',
   sort: 'Сортиране',
   clear: 'Изчистване',
   manage: 'Управление',

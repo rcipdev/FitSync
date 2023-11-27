@@ -32,12 +32,12 @@ export default function Employee() {
       },
     },
     {
-      title: translate('Department'),
-      dataIndex: 'department',
+      title: translate('Weight'),
+      dataIndex: 'weight',
     },
     {
-      title: translate('Position'),
-      dataIndex: 'position',
+      title: translate('Relation'),
+      dataIndex: 'relation',
     },
     {
       title: translate('Phone'),
@@ -72,12 +72,12 @@ export default function Employee() {
       dataIndex: 'gender',
     },
     {
-      title: translate('Department'),
-      dataIndex: 'department',
+      title: translate('Weight'),
+      dataIndex: 'weight',
     },
     {
-      title: translate('Position'),
-      dataIndex: 'position',
+      title: translate('Relation'),
+      dataIndex: 'relation',
     },
     {
       title: translate('address'),
