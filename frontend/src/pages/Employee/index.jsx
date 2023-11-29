@@ -8,7 +8,8 @@ export default function Employee() {
   const translate = useLanguage();
   const entity = 'employee';
   const searchConfig = {
-    displayLabels: ['name', 'surname'],
+    
+    splayLabels: ['name', 'surname'],
     searchFields: 'name,surname,birthday',
     outputValue: '_id',
   };
@@ -25,6 +26,10 @@ export default function Employee() {
       dataIndex: 'surname',
     },
     {
+      title: translate('gender'),
+      dataIndex: 'gender',
+    },
+    {
       title: translate('Birthday'),
       dataIndex: 'birthday',
       render: (date) => {
@@ -32,21 +37,14 @@ export default function Employee() {
       },
     },
     {
-      title: translate('Department'),
-      dataIndex: 'department',
+      title: translate('Weight'),
+      dataIndex: 'weight',
     },
     {
-      title: translate('Position'),
-      dataIndex: 'position',
+      title: translate('Target Weight'),
+      dataIndex: 'targetweight',
     },
-    {
-      title: translate('Phone'),
-      dataIndex: 'phone',
-    },
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
-    },
+    
   ];
 
   const readColumns = [
@@ -64,28 +62,20 @@ export default function Employee() {
       isDate: true,
     },
     {
-      title: translate('birthplace'),
-      dataIndex: 'birthplace',
-    },
-    {
       title: translate('gender'),
       dataIndex: 'gender',
     },
     {
-      title: translate('Department'),
-      dataIndex: 'department',
+      title: translate('Weight'),
+      dataIndex: 'weight',
     },
     {
-      title: translate('Position'),
-      dataIndex: 'position',
+      title: translate('Target Weight'),
+      dataIndex: 'targetweight',
     },
     {
       title: translate('address'),
       dataIndex: 'address',
-    },
-    {
-      title: translate('state'),
-      dataIndex: 'state',
     },
     {
       title: translate('Phone'),

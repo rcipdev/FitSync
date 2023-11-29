@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Form, Input } from 'antd';
+import { Switch, Form, Input, Select } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import useLanguage from '@/locale/useLanguage';
 
@@ -14,9 +14,18 @@ export default function PaymentModeForm({ isUpdateForm = false }) {
           {
             required: true,
           },
-        ]}
+
+        ]} initialValue={'Debit Card'}
       >
-        <Input />
+        <Select
+          options={[
+            { value: 'Debit Card', label: translate('Debit Card') },
+            { value: 'Credit Card', label: translate('Credit Card') },
+            { value: 'Zelle', label: translate('Zelle') },
+            { value: 'Apple Pay', label: translate('Apple Pay') },
+          ]}
+        ></Select>
+        
       </Form.Item>
       <Form.Item
         label={translate('Description')}

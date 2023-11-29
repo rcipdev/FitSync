@@ -13,17 +13,11 @@ export default function Payment() {
   const entityDisplayLabels = ['number'];
   const dataTableColumns = [
     {
-      title: translate('Number'),
-
-      dataIndex: 'number',
-    },
-    {
-      title: translate('Client'),
-      dataIndex: ['client', 'company'],
-    },
-    {
-      title: translate('Amount'),
+      title: translate('Name'),
       dataIndex: 'amount',
+    },{
+      title: translate('Transaction Id'),
+      dataIndex: ['invoice', 'number'],
     },
     {
       title: translate('Date'),
@@ -33,17 +27,23 @@ export default function Payment() {
       },
     },
     {
-      title: translate('Number'),
-      dataIndex: ['invoice', 'number'],
-    },
-    {
-      title: translate('year'),
-      dataIndex: ['invoice', 'year'],
-    },
-    {
-      title: translate('Payment Mode'),
+      title: translate('Payment Method'),
       dataIndex: ['paymentMode', 'name'],
     },
+    {
+      title: translate('Amount'),
+      dataIndex: 'amount',
+    },
+  
+    {
+      title: translate('Subscription Plan'),
+      dataIndex: ['client', 'company'],
+    },
+    {
+      title: translate('Subscription Plan End Date'),
+      dataIndex: ['invoice', 'year'],
+    },
+    
   ];
 
   const entity = 'payment';
