@@ -47,17 +47,6 @@ export default function EmployeeForm() {
         />
       </Form.Item>
       <Form.Item
-        name="birthplace"
-        label={translate('birthplace')}
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
         name="gender"
         label={translate('gender')}
         rules={[
@@ -111,8 +100,8 @@ export default function EmployeeForm() {
         <Input />
       </Form.Item>
       <Form.Item
-        name="relation"
-        label={translate('Relation')}
+        name="targetweight"
+        label={translate('Target Weight')}
         rules={[
           {
             required: true,
@@ -124,17 +113,6 @@ export default function EmployeeForm() {
       <Form.Item
         name="address"
         label={translate('Address')}
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="state"
-        label={translate('State')}
         rules={[
           {
             required: true,

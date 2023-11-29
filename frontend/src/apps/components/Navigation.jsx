@@ -57,7 +57,7 @@ function Sidebar({ collapsible }) {
     {
       key: 'lead',
       icon: <UserAddOutlined />,
-      label: <Link to={'/lead'}>{translate('lead')}</Link>,
+      label: <Link to={'/lead'}>{'Diet'}</Link>,
     },
     {
       key: 'offer',

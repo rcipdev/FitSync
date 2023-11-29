@@ -4,6 +4,7 @@ const Model = mongoose.model('Invoice');
 
 const custom = require('@/controllers/middlewaresControllers/pdfController');
 
+const currency = require('currency.js');
 const { calculate } = require('@/helpers');
 const { increaseBySettingKey } = require('@/middlewares/settings');
 const schema = require('./schemaValidate');
@@ -31,21 +32,22 @@ const create = async (req, res) => {
 
     //Calculate the items array with subTotal, total, taxTotal
     items.map((item) => {
-      let total = calculate.multiply(item['quantity'], item['price']);
+      // console.log(currency(3, {}).multiply());
+      let total = currency(item['quantity']).multiply(item['price']);
       //sub total
-      subTotal = calculate.add(subTotal, total);
+      subTotal = currency(subTotal).add(total);
       //item total
       item['total'] = total;
     });
-    taxTotal = calculate.multiply(subTotal, taxRate);
-    total = calculate.add(subTotal, taxTotal);
+    taxTotal = currency(subTotal).multiply(taxRate);
+    total = currency(subTotal).add(taxTotal);
 
     body['subTotal'] = subTotal;
     body['taxTotal'] = taxTotal;
     body['total'] = total;
     body['items'] = items;
 
-    let paymentStatus = calculate.sub(total, discount) === 0 ? 'paid' : 'unpaid';
+    let paymentStatus = currency(total).subtract(discount) === 0 ? 'paid' : 'unpaid';
 
     body['paymentStatus'] = paymentStatus;
     body['createdBy'] = req.admin._id;

@@ -24,22 +24,15 @@ const employeeSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  birthplace: {
-    type: String,
-  },
   gender: {
     type: String,
     required: true,
   },
-  photo: {
-    type: String,
-    trim: true,
-  },
-  department: {
+  weight: {
     type: String,
     required: true,
   },
-  position: {
+  targetweight: {
     type: String,
     required: true,
   },
@@ -47,18 +40,11 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  state: {
-    type: String,
-  },
   phone: {
     type: String,
     trim: true,
   },
   email: {
-    type: String,
-    trim: true,
-  },
-  urgentContact: {
     type: String,
     trim: true,
   },
