@@ -75,17 +75,17 @@ function Sidebar({ collapsible }) {
     {
       key: 'invoice',
       icon: <FileTextOutlined />,
-      label: <Link to={'/invoice'}>{translate('invoice')}</Link>,
+      label: <Link to={'/invoice'}>{'Budget'}</Link>,
     },
-    {
-      key: 'quote',
-      icon: <FileSyncOutlined />,
-      label: <Link to={'/quote'}>{translate('quote')}</Link>,
-    },
+    // {
+    //   key: 'quote',
+    //   icon: <FileSyncOutlined />,
+    //   label: <Link to={'/quote'}>{translate('quote')}</Link>,
+    // },
     {
       key: 'payment',
       icon: <CreditCardOutlined />,
-      label: <Link to={'/payment'}>{translate('payment')}</Link>,
+      label: <Link to={'/payment'}>{'Budget Spent'}</Link>,
     },
     {
       key: 'employee',
@@ -97,33 +97,33 @@ function Sidebar({ collapsible }) {
       icon: <TeamOutlined />,
       label: <Link to={'/admin'}>{translate('admin')}</Link>,
     },
-    {
-      label: translate('Settings'),
-      key: 'settings',
-      icon: <SettingOutlined />,
-      children: [
-        {
-          key: 'generalSettings',
-          label: <Link to={'/settings'}>{translate('general_settings')}</Link>,
-        },
-        {
-          key: 'emailTemplates',
-          label: <Link to={'/email'}>{translate('email_templates')}</Link>,
-        },
-        {
-          key: 'paymentMode',
-          label: <Link to={'/payment/mode'}>{translate('payment_mode')}</Link>,
-        },
-        {
-          key: 'taxes',
-          label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
-        },
-        {
-          key: 'advancedSettings',
-          label: <Link to={'/settings/advanced'}>{translate('advanced_settings')}</Link>,
-        },
-      ],
-    },
+    // {
+    //   label: translate('Settings'),
+    //   key: 'settings',
+    //   icon: <SettingOutlined />,
+    //   children: [
+    //     {
+    //       key: 'generalSettings',
+    //       label: <Link to={'/settings'}>{translate('general_settings')}</Link>,
+    //     },
+    //     {
+    //       key: 'emailTemplates',
+    //       label: <Link to={'/email'}>{translate('email_templates')}</Link>,
+    //     },
+    //     {
+    //       key: 'paymentMode',
+    //       label: <Link to={'/payment/mode'}>{translate('payment_mode')}</Link>,
+    //     },
+    //     {
+    //       key: 'taxes',
+    //       label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
+    //     },
+    //     {
+    //       key: 'advancedSettings',
+    //       label: <Link to={'/settings/advanced'}>{translate('advanced_settings')}</Link>,
+    //     },
+    //   ],
+    // },
   ];
 
   useEffect(() => {

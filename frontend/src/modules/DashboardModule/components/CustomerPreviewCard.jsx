@@ -10,7 +10,7 @@ export default function CustomerPreviewCard({
   const translate = useLanguage();
   return (
     <Row className="gutter-row">
-      <div className="whiteBox shadow" style={{ height: 458 }}>
+      <div className="whiteBox shadow" style={{ height: 400, marginLeft:20 }}>
         <div
           className="pad20"
           style={{

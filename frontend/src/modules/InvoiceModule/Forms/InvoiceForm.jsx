@@ -66,7 +66,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
         <Col className="gutter-row" span={9}>
           <Form.Item
             name="client"
-            label={translate('Client')}
+            label={'Family Member'}
             rules={[
               {
                 required: true,
@@ -81,7 +81,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
             />
           </Form.Item>
         </Col>
-        <Col className="gutter-row" span={5}>
+        {/* <Col className="gutter-row" span={5}>
           <Form.Item
             label={translate('number')}
             name="number"
@@ -108,7 +108,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
           >
             <InputNumber style={{ width: '100%' }} />
           </Form.Item>
-        </Col>
+        </Col> */}
         <Col className="gutter-row" span={5}>
           <Form.Item
             label={translate('status')}
@@ -118,13 +118,13 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
                 required: false,
               },
             ]}
-            initialValue={'draft'}
+            initialValue={'new'}
           >
             <Select
               options={[
-                { value: 'draft', label: translate('Draft') },
-                { value: 'pending', label: translate('Pending') },
-                { value: 'sent', label: translate('Sent') },
+                { value: 'new', label: 'New' },
+                { value: 'using', label: 'Using' },
+                { value: 'spent', label: 'Spent' },
               ]}
             ></Select>
           </Form.Item>
@@ -149,21 +149,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
             <DatePicker style={{ width: '100%' }} format={'DD/MM/YYYY'} />
           </Form.Item>
         </Col>
-        <Col className="gutter-row" span={7}>
-          <Form.Item
-            name="expiredDate"
-            label={translate('Expire Date')}
-            rules={[
-              {
-                required: true,
-                type: 'object',
-              },
-            ]}
-            initialValue={dayjs().add(30, 'days')}
-          >
-            <DatePicker style={{ width: '100%' }} format={'DD/MM/YYYY'} />
-          </Form.Item>
-        </Col>
+       
       </Row>
       <Divider dashed />
       <Row gutter={[12, 12]} style={{ position: 'relative' }}>
@@ -227,7 +213,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
             <MoneyInputFormItem readOnly value={subTotal} />
           </Col>
         </Row>
-        <Row gutter={[12, -5]}>
+        {/* <Row gutter={[12, -5]}>
           <Col className="gutter-row" span={4} offset={15}>
             <Form.Item
               name="taxRate"
@@ -255,7 +241,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
           <Col className="gutter-row" span={5}>
             <MoneyInputFormItem readOnly value={taxTotal} />
           </Col>
-        </Row>
+        </Row> */}
         <Row gutter={[12, -5]}>
           <Col className="gutter-row" span={4} offset={15}>
             <p
