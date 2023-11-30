@@ -9,11 +9,11 @@ const invoiceSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'Admin', required: true },
   number: {
     type: Number,
-    required: true,
+    // required: true,
   },
   year: {
     type: Number,
-    required: true,
+    // required: true,
   },
   recurring: {
     type: String,
@@ -25,7 +25,7 @@ const invoiceSchema = new mongoose.Schema({
   },
   expiredDate: {
     type: Date,
-    required: true,
+    // required: true,
   },
   client: {
     type: mongoose.Schema.ObjectId,
@@ -88,7 +88,7 @@ const invoiceSchema = new mongoose.Schema({
   ],
   paymentStatus: {
     type: String,
-    default: 'unpaid',
+    // default: 'unpaid',
   },
   note: {
     type: String,

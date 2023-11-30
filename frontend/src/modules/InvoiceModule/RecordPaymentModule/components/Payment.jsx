@@ -50,29 +50,27 @@ export default function Payment({ config, currentItem }) {
         >
           <PageHeader
             onBack={() => navigate(`/${entity.toLowerCase()}`)}
-            title={`Record Payment for ${ENTITY_NAME} # ${currentErp.number}/${
-              currentErp.year || ''
-            }`}
+            title={`Record Budget`}
             ghost={false}
             tags={<Tag color="volcano">{currentErp.status}</Tag>}
             // subTitle="This is cuurent erp page"
             extra={[
-              <Button
-                key={`${uniqueId()}`}
-                onClick={() => {
-                  navigate(`/${entity.toLowerCase()}`);
-                }}
-                icon={<CloseCircleOutlined />}
-              >
-                {translate('Cancel')}
-              </Button>,
-              <Button
-                key={`${uniqueId()}`}
-                onClick={() => navigate(`/invoice/read/${currentErp._id}`)}
-                icon={<FileTextOutlined />}
-              >
-                {translate('Show Invoice')}
-              </Button>,
+              // <Button
+              //   key={`${uniqueId()}`}
+              //   onClick={() => {
+              //     navigate(`/${entity.toLowerCase()}`);
+              //   }}
+              //   icon={<CloseCircleOutlined />}
+              // >
+              //   {translate('Cancel')}
+              // </Button>,
+              // <Button
+              //   key={`${uniqueId()}`}
+              //   onClick={() => navigate(`/invoice/read/${currentErp._id}`)}
+              //   icon={<FileTextOutlined />}
+              // >
+              //   {translate('Show Invoice')}
+              // </Button>,
             ]}
             style={{
               padding: '20px 0px',
@@ -90,7 +88,7 @@ export default function Payment({ config, currentItem }) {
           lg={{ span: 10, order: 2, push: 4 }}
         >
           <div className="space50"></div>
-          <Descriptions title={`${translate('Client')}  : ${currentErp.client.company}`} column={1}>
+          <Descriptions title={`${translate('Name')}  : ${currentErp.client.company}`} column={1}>
             <Descriptions.Item label={translate('email')}>
               {currentErp.client.email}
             </Descriptions.Item>
@@ -98,7 +96,7 @@ export default function Payment({ config, currentItem }) {
               {currentErp.client.phone}
             </Descriptions.Item>
             <Divider dashed />
-            <Descriptions.Item label={translate('payment status')}>
+            <Descriptions.Item label={translate('Status')}>
               {currentErp.paymentStatus}
             </Descriptions.Item>
             <Descriptions.Item label={translate('sub total')}>
@@ -107,12 +105,12 @@ export default function Payment({ config, currentItem }) {
             <Descriptions.Item label={translate('total')}>
               {money.amountFormatter({ amount: currentErp.total })}
             </Descriptions.Item>
-            <Descriptions.Item label={translate('discount')}>
+            {/* <Descriptions.Item label={translate('discount')}>
               {money.amountFormatter({ amount: currentErp.discount })}
             </Descriptions.Item>
             <Descriptions.Item label={translate('Balance')}>
               {money.amountFormatter({ amount: currentErp.credit })}
-            </Descriptions.Item>
+            </Descriptions.Item> */}
           </Descriptions>
         </Col>
 

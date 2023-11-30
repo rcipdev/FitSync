@@ -11,7 +11,7 @@ export default function InvoiceDataTableModule({ config }) {
         config={config}
         extra={[
           {
-            label: translate('Record Update'),
+            label: translate('Record Payment'),
             key: 'recordPayment',
             icon: <CreditCardOutlined />,
           },

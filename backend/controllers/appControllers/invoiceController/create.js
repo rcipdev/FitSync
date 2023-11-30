@@ -15,6 +15,7 @@ const create = async (req, res) => {
 
     const { error, value } = schema.validate(body);
     if (error) {
+      console.log(error);
       const { details } = error;
       return res.status(400).json({
         success: false,
@@ -47,7 +48,7 @@ const create = async (req, res) => {
     body['total'] = total;
     body['items'] = items;
 
-    let paymentStatus = currency(total).subtract(discount) === 0 ? 'paid' : 'unpaid';
+    let paymentStatus = currency(total).subtract(discount) === 0 ? 'spent' : 'using';
 
     body['paymentStatus'] = paymentStatus;
     body['createdBy'] = req.admin._id;
