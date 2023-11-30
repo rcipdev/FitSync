@@ -19,14 +19,6 @@ export default function DashboardModule() {
     request.summary({ entity: 'invoice' })
   );
 
-  // const { result: quoteResult, isLoading: quoteLoading } = useFetch(() =>
-  //   request.summary({ entity: 'quote' })
-  // );
-
-  const { result: offerResult, isLoading: offerLoading } = useFetch(() =>
-    request.summary({ entity: 'offer' })
-  );
-
   const { result: paymentResult, isLoading: paymentLoading } = useFetch(() =>
     request.summary({ entity: 'payment' })
   );
@@ -73,8 +65,8 @@ export default function DashboardModule() {
     {
       result: invoiceResult,
       isLoading: invoiceLoading,
-      entity: "Budget",
-      title: "Budget Preview",
+      entity: 'Budget',
+      title: 'Budget Preview',
     },
     // {
     //   result: quoteResult,
@@ -91,7 +83,7 @@ export default function DashboardModule() {
     {
       result: paymentResult,
       isLoading: paymentLoading,
-      entity: "Budget Spent",
+      entity: 'Budget Spent',
       title: 'Budget Spent Preview',
     },
   ];
@@ -159,10 +151,10 @@ export default function DashboardModule() {
             <Row className="pad20" gutter={[0, 0]}>
               {statisticCards}
               <CustomerPreviewCard
-            isLoading={clientLoading}
-            activeCustomer={clientResult?.active}
-            newCustomer={clientResult?.new}
-          />
+                isLoading={clientLoading}
+                activeCustomer={clientResult?.active}
+                newCustomer={clientResult?.new}
+              />
             </Row>
           </div>
         </Col>

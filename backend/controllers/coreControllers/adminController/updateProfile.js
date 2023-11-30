@@ -25,7 +25,6 @@ const updateProfile = async (req, res) => {
         new: true, // return the new result instead of the old one
       }
     ).exec();
-
     if (!result) {
       return res.status(404).json({
         success: false,
@@ -33,6 +32,7 @@ const updateProfile = async (req, res) => {
         message: 'No document found by this id: ' + req.params.id,
       });
     }
+    console.log(req);
     return res.status(200).json({
       success: true,
       result: {

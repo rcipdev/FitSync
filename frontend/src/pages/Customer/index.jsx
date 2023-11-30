@@ -54,8 +54,8 @@ export default function Customer() {
 
   const Labels = {
     PANEL_TITLE: translate('customer'),
-    DATATABLE_TITLE: translate('customer_list'),
-    ADD_NEW_ENTITY: translate('add_new_customer'),
+    DATATABLE_TITLE: translate('Family Members'),
+    ADD_NEW_ENTITY: translate('Add Family Member'),
     ENTITY_NAME: translate('customer'),
     CREATE_ENTITY: translate('save'),
     UPDATE_ENTITY: translate('update'),

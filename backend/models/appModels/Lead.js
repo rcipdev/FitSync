@@ -33,23 +33,6 @@ const leadSchema = new mongoose.Schema({
     default: 'I eat nothing',
   },
 
-  // country: {
-  //   type: String,
-  //   trim: true,
-  // },
-  // customField: [
-  //   {
-  //     fieldName: {
-  //       type: String,
-  //       trim: true,
-  //     },
-  //     fieldValue: {
-  //       type: String,
-  //       trim: true,
-  //     },
-  //   },
-  // ],
-
   client: {
     type: mongoose.Schema.ObjectId,
     ref: 'Client',
@@ -64,5 +47,7 @@ const leadSchema = new mongoose.Schema({
 });
 
 leadSchema.plugin(require('mongoose-autopopulate'));
-
+leadSchema.index({
+  name: 'text',
+});
 module.exports = mongoose.model('Lead', leadSchema);

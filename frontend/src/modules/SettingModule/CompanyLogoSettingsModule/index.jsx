@@ -11,9 +11,7 @@ export default function CompanyLogoSettingsModule({ config }) {
       <SetingsSection
         title={translate('Company Logo')}
         description={translate('Update Company logo')}
-      >
-        <AppSettingForm />
-      </SetingsSection>
+      ></SetingsSection>
     </UpdateSettingModule>
   );
 }

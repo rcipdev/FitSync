@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const Model = mongoose.model('Client');
-const QuoteModel = mongoose.model('Quote');
 const InvoiceModel = mongoose.model('Invoice');
 
 const remove = async (req, res) => {
@@ -10,14 +9,6 @@ const remove = async (req, res) => {
   const { id } = req.params;
   try {
     // first find if there alt least one quote or invoice exist corresponding to the client
-    const quotes = await QuoteModel.findOne({ client: id, removed: false }).exec();
-    if (quotes) {
-      return res.status(400).json({
-        success: false,
-        result: null,
-        message: 'Cannot delete client if client have any quote  or invoice',
-      });
-    }
     const invoice = await InvoiceModel.findOne({ client: id, removed: false }).exec();
     if (invoice) {
       return res.status(400).json({

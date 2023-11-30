@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const Model = mongoose.model('Invoice');
 
-const custom = require('@/controllers/middlewaresControllers/pdfController');
-
 const { calculate } = require('@/helpers');
+const currency = require('currency.js');
+
 const schema = require('./schemaValidate');
 
 const update = async (req, res) => {
@@ -26,8 +26,6 @@ const update = async (req, res) => {
       removed: false,
     });
 
-    const { credit } = previousInvoice;
-
     const { items = [], taxRate = 0, discount = 0 } = req.body;
 
     if (items.length === 0) {
@@ -45,39 +43,37 @@ const update = async (req, res) => {
 
     //Calculate the items array with subTotal, total, taxTotal
     items.map((item) => {
-      let total = calculate.multiply(item['quantity'], item['price']);
+      let total = currency(item['quantity']).multiply(item['price']);
       //sub total
-      subTotal = calculate.add(subTotal, total);
+      subTotal = currency(subTotal).add(total);
       //item total
       item['total'] = total;
     });
-    taxTotal = calculate.multiply(subTotal, taxRate);
-    total = calculate.add(subTotal, taxTotal);
+    taxTotal = currency(subTotal).multiply(taxRate);
+    total = currency(subTotal).add(taxTotal);
 
     body['subTotal'] = subTotal;
     body['taxTotal'] = taxTotal;
-    body['total'] = total;
+    body['total'] = total.toString();
     body['items'] = items;
-    body['pdfPath'] = 'invoice-' + req.params.id + '.pdf';
+    body['pdfPath'] = '';
     // Find document by id and updates with the required fields
+    let paymentStatus = currency(total).subtract(discount) === 0 ? 'spent' : 'using';
 
-    let paymentStatus =
-      calculate.sub(total, discount) === credit ? 'paid' : credit > 0 ? 'partially' : 'unpaid';
     body['paymentStatus'] = paymentStatus;
+    body['createdBy'] = req.admin._id;
 
     const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
       new: true, // return the new result instead of the old one
     }).exec();
 
-    // Returning successfull response
-
-    custom.generatePdf('Invoice', { filename: 'invoice', format: 'A4' }, result);
     return res.status(200).json({
       success: true,
       result,
       message: 'we update this document by this id: ' + req.params.id,
     });
   } catch (error) {
+    console.log(error);
     // If error is thrown by Mongoose due to required validations
     if (error.name == 'ValidationError') {
       return res.status(400).json({
