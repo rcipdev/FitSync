@@ -3,6 +3,7 @@ import { Form, Input, Select } from 'antd';
 import dayjs from 'dayjs';
 import { DatePicker } from 'antd';
 import useLanguage from '@/locale/useLanguage';
+import AutoCompleteAsync from '@/components/AutoCompleteAsync';
 
 // ... (existing imports and code)
 
@@ -76,11 +77,26 @@ export default function LeadForm() {
     }
     return rules;
   };
- 
 
   return (
     <>
       {/* Your Form.Item components for Day, Breakfast, Lunch, Snacks, Dinner */}
+      <Form.Item
+        name="client"
+        label={'Family Member'}
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <AutoCompleteAsync
+          entity={'client'}
+          displayLabels={['company']}
+          searchFields={'company'}
+          // onUpdateValue={autoCompleteUpdate}
+        />
+      </Form.Item>
       <Form.Item
         name="date"
         label={translate('date')}
@@ -112,7 +128,6 @@ export default function LeadForm() {
             { value: 'eggs', label: translate('eggs') },
             { value: 'Greek Yogurt', label: translate('Greek Yogurt') },
             { value: 'Others', label: translate('Others') },
-
           ]}
         />
         {selectedBreakfast === 'Others' && (
@@ -169,7 +184,6 @@ export default function LeadForm() {
             { value: 'Homemade Smoothies', label: translate('Homemade Smoothies') },
             { value: 'Cottage Cheese', label: translate('Cottage Cheese') },
             { value: 'Others', label: translate('Others') },
-            
           ]}
         />
         {selectedSnacks === 'Others' && (
@@ -227,20 +241,6 @@ export default function LeadForm() {
             { value: 'Completed', label: translate('Completed') },
           ]}
         ></Select>
-      </Form.Item>
-      <Form.Item
-        name="email"
-        label={translate('email')}
-        rules={[
-          {
-            type: 'email',
-          },
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
       </Form.Item>
     </>
   );

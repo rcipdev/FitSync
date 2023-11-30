@@ -8,7 +8,6 @@ export default function Employee() {
   const translate = useLanguage();
   const entity = 'employee';
   const searchConfig = {
-    
     splayLabels: ['name', 'surname'],
     searchFields: 'name,surname,birthday',
     outputValue: '_id',
@@ -16,8 +15,18 @@ export default function Employee() {
 
   const entityDisplayLabels = ['name', 'surname'];
 
-
   const dataTableColumns = [
+    {
+      title: translate('Name'),
+      dataIndex: ['client', 'company'],
+    },
+    {
+      title: translate('Date'),
+      dataIndex: 'date',
+      render: (date) => {
+        return dayjs(date).format('DD/MM/YYYY');
+      },
+    },
     {
       title: translate('Walking in mins'),
       dataIndex: 'walking',
@@ -36,12 +45,16 @@ export default function Employee() {
     },
     {
       title: translate('Calories Burnt'),
-      dataIndex: 'caloriesburnt',
+      dataIndex: 'caloriesBurnt',
     },
-    
   ];
 
   const readColumns = [
+    // {
+    //   title: translate('Name'),
+    //   dataIndex: ['client', 'company'],
+    // },
+
     {
       title: translate('Walking in mins'),
       dataIndex: 'walking',
@@ -58,11 +71,15 @@ export default function Employee() {
       title: translate('Yoga in mins'),
       dataIndex: 'yoga',
     },
-    {
-      title: translate('Calories Burnt'),
-      dataIndex: 'caloriesburnt',
-      render: (text, record) => calculateCaloriesBurnt(record),
-    },
+    // {
+    //   title: translate('Calories Burnt'),
+    //   dataIndex: 'caloriesburnt',
+    //   render: (d) => {
+    //     console.log(d);
+    //     // const currentTotal = parseInt()(calculate.multiply(subTotal, taxRate), subTotal);
+    //     // translate(currentTotal);
+    //   },
+    // },
   ];
 
   const Labels = {

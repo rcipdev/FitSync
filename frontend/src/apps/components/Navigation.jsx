@@ -60,10 +60,15 @@ function Sidebar({ collapsible }) {
       label: <Link to={'/lead'}>{'Diet'}</Link>,
     },
     {
-      key: 'offer',
-      icon: <FileOutlined />,
-      label: <Link to={'/offer'}>{translate('offer')}</Link>,
+      key: 'Workout',
+      icon: <UserOutlined />,
+      label: <Link to={'/employee'}>{translate('Workout')}</Link>,
     },
+    // {
+    //   key: 'offer',
+    //   icon: <FileOutlined />,
+    //   label: <Link to={'/offer'}>{translate('offer')}</Link>,
+    // },
     {
       key: 'Users',
       icon: <CustomerServiceOutlined />,
@@ -87,11 +92,7 @@ function Sidebar({ collapsible }) {
       icon: <CreditCardOutlined />,
       label: <Link to={'/payment'}>{'Budget Spent'}</Link>,
     },
-    {
-      key: 'Workout',
-      icon: <UserOutlined />,
-      label: <Link to={'/employee'}>{translate('Workout')}</Link>,
-    },
+
     // {
     //   key: 'admin',
     //   icon: <TeamOutlined />,
@@ -171,10 +172,9 @@ function Sidebar({ collapsible }) {
             // eslint-disable-next-line no-undef
             src={logoIcon}
             alt="Logo"
-            style={{  marginLeft: '10px', height: '70px' }}
+            style={{ marginLeft: '10px', height: '70px' }}
           />
         )}
-        
       </div>
       <Menu items={items} mode="inline" theme={'light'} />
     </Sider>

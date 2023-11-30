@@ -41,7 +41,9 @@ router
   .route('/employee/delete/:id')
   .delete(hasPermission('delete'), catchErrors(employeeController.delete));
 router.route('/employee/search').get(hasPermission('read'), catchErrors(employeeController.search));
-router.route('/employee/list').get(hasPermission('read'), catchErrors(employeeController.list));
+router
+  .route('/employee/list')
+  .get(hasPermission('read'), catchErrors(employeeController.calculateCalories));
 router.route('/employee/filter').get(hasPermission('read'), catchErrors(employeeController.filter));
 
 // //_____________________________________ API for payment mode_____________________

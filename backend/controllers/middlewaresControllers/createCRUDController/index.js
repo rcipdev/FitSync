@@ -39,6 +39,55 @@ const createCRUDController = (modelName) => {
     filter(Model, req, res);
   };
 
+  crudMethods.calculateCalories = async (req, res) => {
+    const page = req.query.page || 1;
+    const limit = parseInt(req.query.items) || 10;
+    const skip = page * limit - limit;
+    try {
+      const resultsPromise = Model.find({ removed: false })
+        .skip(skip)
+        .limit(limit)
+        .sort({ created: 'desc' })
+        .populate();
+      const countPromise = Model.count({ removed: false });
+      let [result, count] = await Promise.all([resultsPromise, countPromise]);
+      result = result.map((obj) =>
+        Object.assign(obj, {
+          caloriesBurnt:
+            parseInt(obj.walking) * 4 +
+            parseInt(obj.cycling) * 6 +
+            parseInt(obj.threadmill) * 6 +
+            parseInt(obj.yoga) * 6,
+        })
+      );
+      const pages = Math.ceil(count / limit);
+
+      const pagination = { page, pages, count };
+      if (count > 0) {
+        return res.status(200).json({
+          success: true,
+          result,
+          pagination,
+          message: 'Successfully found all documents',
+        });
+      } else {
+        return res.status(203).json({
+          success: true,
+          result: [],
+          pagination,
+          message: 'Collection is Empty',
+        });
+      }
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        result: [],
+        message: error.message,
+        error: error,
+      });
+    }
+  };
+
   return crudMethods;
 };
 

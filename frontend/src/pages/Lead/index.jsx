@@ -17,11 +17,17 @@ export default function Lead() {
   const entityDisplayLabels = ['number', 'company'];
 
   const readColumns = [
-    {
-      title: translate('Date'),
-      dataIndex: 'date',
-
-    },
+    // {
+    //   title: translate('Name'),
+    //   dataIndex: ['client', 'company'],
+    // },
+    // {
+    //   title: translate('Date'),
+    //   dataIndex: 'date',
+    //   render: (date) => {
+    //     return dayjs(date).format('DD/MM/YYYY');
+    //   },
+    // },
     {
       title: translate('Breakfast'),
       dataIndex: 'breakfast',
@@ -51,100 +57,108 @@ export default function Lead() {
 
   const dataTableColumns = [
     {
+      title: translate('Name'),
+      dataIndex: ['client', 'company'],
+    },
+    {
       title: translate('Date'),
       dataIndex: 'date',
       render: (date) => {
         return dayjs(date).format('DD/MM/YYYY');
       },
     },
-      {
-        title: translate('Breakfast'),
-        dataIndex: 'breakfast',
-        render: (breakfast) => {
-          let color =
+    {
+      title: translate('Breakfast'),
+      dataIndex: 'breakfast',
+      render: (breakfast) => {
+        let color =
           breakfast === 'Select'
-              ? 'violet'
-              : breakfast === 'Oatmeal'
-              ? 'blue'
-              : breakfast === 'Whole Grain Toast'
-              ? 'green'
-              : breakfast === 'Nuts'
-              ? 'orange'
-              : breakfast === 'Green Tea'
-              ? 'red'
-              : breakfast === 'eggs'
-              ? 'cyan'
-              : breakfast === 'Greek Yogurt'
-              ? 'yellow'
-              : 'skyblue'
-          return <Tag color={color}>{breakfast && translate(breakfast)}</Tag>;
-        }, },
-        {
-          title: translate('Lunch'),
-          dataIndex: 'lunch',
-          render: (lunch) => {
-            let color =
-            lunch === 'Select'
-                ? 'violet'
-                : lunch === 'Chicken Salad'
-                ? 'blue'
-                : lunch === 'Quinoa Bowl'
-                ? 'green'
-                : lunch === 'Avocado Wrap'
-                ? 'orange'
-                : lunch === 'Vegetarian Stir-Fry'
-                ? 'red'
-                : lunch === 'Sweet Potato'
-                ? 'yellow'
-                : lunch === 'Vegetable Soup'
-                ? 'cyan'
-                : 'skyblue'
-            return <Tag color={color}>{lunch && translate(lunch)}</Tag>;
-          }, },
-          {
-            title: translate('Snacks'),
-            dataIndex: 'snacks',
-            render: (snacks) => {
-              let color =
-              snacks === 'Select'
-                  ? 'violet'
-                  : snacks === 'Fresh Fruits'
-                  ? 'blue'
-                  : snacks === 'Vegetable Sticks'
-                  ? 'green'
-                  : snacks === 'Nuts and Seeds'
-                  ? 'orange'
-                  : snacks === 'Hard-Boiled Eggs'
-                  ? 'red'
-                  : snacks === 'Homemade Smoothies'
-                  ? 'yellow'
-                  : snacks === 'Cottage Cheese'
-                  ? 'cyan'
-                  : 'skyblue'
-              return <Tag color={color}>{snacks && translate(snacks)}</Tag>;
-            }, },
-            {
-              title: translate('Dinner'),
-              dataIndex: 'dinner',
-              render: (dinner) => {
-                let color =
-                dinner === 'Select'
-                    ? 'violet'
-                    : dinner === 'Grilled Chicken'
-                    ? 'blue'
-                    : dinner === 'Vegetable Stir-Fry'
-                    ? 'green'
-                    : dinner === 'Brown Rice Bowls'
-                    ? 'orange'
-                    : dinner === 'Salmon with Vegetables'
-                    ? 'red'
-                    : dinner === 'Veggie Burgers'
-                    ? 'yellow'
-                    : dinner === 'Mediterranean Platter'
-                    ? 'cyan'
-                    : 'skyblue'
-                return <Tag color={color}>{dinner && translate(dinner)}</Tag>;
-              }, },
+            ? 'violet'
+            : breakfast === 'Oatmeal'
+            ? 'blue'
+            : breakfast === 'Whole Grain Toast'
+            ? 'green'
+            : breakfast === 'Nuts'
+            ? 'orange'
+            : breakfast === 'Green Tea'
+            ? 'red'
+            : breakfast === 'eggs'
+            ? 'cyan'
+            : breakfast === 'Greek Yogurt'
+            ? 'yellow'
+            : 'skyblue';
+        return <Tag color={color}>{breakfast && translate(breakfast)}</Tag>;
+      },
+    },
+    {
+      title: translate('Lunch'),
+      dataIndex: 'lunch',
+      render: (lunch) => {
+        let color =
+          lunch === 'Select'
+            ? 'violet'
+            : lunch === 'Chicken Salad'
+            ? 'blue'
+            : lunch === 'Quinoa Bowl'
+            ? 'green'
+            : lunch === 'Avocado Wrap'
+            ? 'orange'
+            : lunch === 'Vegetarian Stir-Fry'
+            ? 'red'
+            : lunch === 'Sweet Potato'
+            ? 'yellow'
+            : lunch === 'Vegetable Soup'
+            ? 'cyan'
+            : 'skyblue';
+        return <Tag color={color}>{lunch && translate(lunch)}</Tag>;
+      },
+    },
+    {
+      title: translate('Snacks'),
+      dataIndex: 'snacks',
+      render: (snacks) => {
+        let color =
+          snacks === 'Select'
+            ? 'violet'
+            : snacks === 'Fresh Fruits'
+            ? 'blue'
+            : snacks === 'Vegetable Sticks'
+            ? 'green'
+            : snacks === 'Nuts and Seeds'
+            ? 'orange'
+            : snacks === 'Hard-Boiled Eggs'
+            ? 'red'
+            : snacks === 'Homemade Smoothies'
+            ? 'yellow'
+            : snacks === 'Cottage Cheese'
+            ? 'cyan'
+            : 'skyblue';
+        return <Tag color={color}>{snacks && translate(snacks)}</Tag>;
+      },
+    },
+    {
+      title: translate('Dinner'),
+      dataIndex: 'dinner',
+      render: (dinner) => {
+        let color =
+          dinner === 'Select'
+            ? 'violet'
+            : dinner === 'Grilled Chicken'
+            ? 'blue'
+            : dinner === 'Vegetable Stir-Fry'
+            ? 'green'
+            : dinner === 'Brown Rice Bowls'
+            ? 'orange'
+            : dinner === 'Salmon with Vegetables'
+            ? 'red'
+            : dinner === 'Veggie Burgers'
+            ? 'yellow'
+            : dinner === 'Mediterranean Platter'
+            ? 'cyan'
+            : 'skyblue';
+        return <Tag color={color}>{dinner && translate(dinner)}</Tag>;
+      },
+    },
     {
       title: translate('Status'),
       dataIndex: 'status',
@@ -184,7 +198,6 @@ export default function Lead() {
     ...configPage,
     dataTableColumns,
     readColumns,
-    searchConfig,
     entityDisplayLabels,
   };
   return (

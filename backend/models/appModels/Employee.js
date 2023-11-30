@@ -26,6 +26,13 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  caloriesBurnt: {
+    type: String,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
   email: {
     type: String,
     trim: true,
@@ -33,6 +40,12 @@ const employeeSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now,
+  },
+  client: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Client',
+    required: true,
+    autopopulate: true,
   },
 });
 employeeSchema.plugin(require('mongoose-autopopulate'));

@@ -32,10 +32,6 @@ const leadSchema = new mongoose.Schema({
     type: String,
     default: 'I eat nothing',
   },
-  email: {
-    type: String,
-    trim: true,
-  },
 
   // country: {
   //   type: String,
@@ -54,10 +50,19 @@ const leadSchema = new mongoose.Schema({
   //   },
   // ],
 
+  client: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Client',
+    required: true,
+    autopopulate: true,
+  },
+
   status: {
     type: String,
     default: 'new',
   },
 });
+
+leadSchema.plugin(require('mongoose-autopopulate'));
 
 module.exports = mongoose.model('Lead', leadSchema);
