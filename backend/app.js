@@ -10,7 +10,7 @@ const helpers = require('./helpers');
 
 const coreAuthRouter = require('./routes/coreRoutes/coreAuth');
 const coreApiRouter = require('./routes/coreRoutes/coreApi');
-const corePublicRouter = require('./routes/coreRoutes/corePublicRouter');
+// const corePublicRouter = require('./routes/coreRoutes/corePublicRouter');
 const { isValidAdminToken } = require('./controllers/coreControllers/authJwtController');
 
 const errorHandlers = require('./handlers/errorHandlers');
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 app.use('/api', coreAuthRouter);
 app.use('/api', isValidAdminToken, coreApiRouter);
 app.use('/api', isValidAdminToken, erpApiRouter);
-app.use('/public', corePublicRouter);
+// app.use('/public', corePublicRouter);
 
 app.use(errorHandlers.notFound);
 
