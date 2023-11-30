@@ -2,11 +2,8 @@ const mongoose = require('mongoose');
 
 const Model = mongoose.model('Invoice');
 
-const custom = require('@/controllers/middlewaresControllers/pdfController');
-
 const currency = require('currency.js');
 const { calculate } = require('@/helpers');
-const { increaseBySettingKey } = require('@/middlewares/settings');
 const schema = require('./schemaValidate');
 
 const create = async (req, res) => {
@@ -15,6 +12,7 @@ const create = async (req, res) => {
 
     const { error, value } = schema.validate(body);
     if (error) {
+      console.log(error);
       const { details } = error;
       return res.status(400).json({
         success: false,
@@ -47,7 +45,7 @@ const create = async (req, res) => {
     body['total'] = total;
     body['items'] = items;
 
-    let paymentStatus = currency(total).subtract(discount) === 0 ? 'paid' : 'unpaid';
+    let paymentStatus = currency(total).subtract(discount) === 0 ? 'spent' : 'using';
 
     body['paymentStatus'] = paymentStatus;
     body['createdBy'] = req.admin._id;
@@ -62,10 +60,6 @@ const create = async (req, res) => {
       }
     ).exec();
     // Returning successfull response
-
-    increaseBySettingKey({ settingKey: 'last_invoice_number' });
-
-    custom.generatePdf('Invoice', { filename: 'invoice', format: 'A4' }, result);
 
     // Returning successfull response
     return res.status(200).json({

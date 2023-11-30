@@ -8,7 +8,6 @@ export default function Employee() {
   const translate = useLanguage();
   const entity = 'employee';
   const searchConfig = {
-    
     splayLabels: ['name', 'surname'],
     searchFields: 'name,surname,birthday',
     outputValue: '_id',
@@ -18,79 +17,75 @@ export default function Employee() {
 
   const dataTableColumns = [
     {
-      title: translate('first name'),
-      dataIndex: 'name',
+      title: translate('Name'),
+      dataIndex: ['client', 'company'],
     },
     {
-      title: translate('last name'),
-      dataIndex: 'surname',
-    },
-    {
-      title: translate('gender'),
-      dataIndex: 'gender',
-    },
-    {
-      title: translate('Birthday'),
-      dataIndex: 'birthday',
+      title: translate('Date'),
+      dataIndex: 'date',
       render: (date) => {
         return dayjs(date).format('DD/MM/YYYY');
       },
     },
     {
-      title: translate('Weight'),
-      dataIndex: 'weight',
+      title: translate('Walking in mins'),
+      dataIndex: 'walking',
     },
     {
-      title: translate('Target Weight'),
-      dataIndex: 'targetweight',
+      title: translate('Cycling in mins'),
+      dataIndex: 'cycling',
     },
-    
+    {
+      title: translate('Treadmill in mins'),
+      dataIndex: 'threadmill',
+    },
+    {
+      title: translate('Yoga in mins'),
+      dataIndex: 'yoga',
+    },
+    {
+      title: translate('Calories Burnt'),
+      dataIndex: 'caloriesBurnt',
+    },
   ];
 
   const readColumns = [
+    // {
+    //   title: translate('Name'),
+    //   dataIndex: ['client', 'company'],
+    // },
+
     {
-      title: translate('first name'),
-      dataIndex: 'name',
+      title: translate('Walking in mins'),
+      dataIndex: 'walking',
     },
     {
-      title: translate('last name'),
-      dataIndex: 'surname',
+      title: translate('Cycling in mins'),
+      dataIndex: 'cycling',
     },
     {
-      title: translate('Birthday'),
-      dataIndex: 'birthday',
-      isDate: true,
+      title: translate('Treadmill in mins'),
+      dataIndex: 'threadmill',
     },
     {
-      title: translate('gender'),
-      dataIndex: 'gender',
+      title: translate('Yoga in mins'),
+      dataIndex: 'yoga',
     },
-    {
-      title: translate('Weight'),
-      dataIndex: 'weight',
-    },
-    {
-      title: translate('Target Weight'),
-      dataIndex: 'targetweight',
-    },
-    {
-      title: translate('address'),
-      dataIndex: 'address',
-    },
-    {
-      title: translate('Phone'),
-      dataIndex: 'phone',
-    },
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
-    },
+    // {
+    //   title: translate('Calories Burnt'),
+    //   dataIndex: 'caloriesburnt',
+    //   render: (d) => {
+    //     console.log(d);
+    //     // const currentTotal = parseInt()(calculate.multiply(subTotal, taxRate), subTotal);
+    //     // translate(currentTotal);
+    //   },
+    // },
   ];
 
   const Labels = {
     PANEL_TITLE: translate('employee'),
-    DATATABLE_TITLE: translate('employee_list'),
-    ADD_NEW_ENTITY: translate('add_new_employee'),
+    DATATABLE_TITLE: translate('Workout'),
+    ADD_NEW_ENTITY: translate('Add New Workout'),
     ENTITY_NAME: translate('employee'),
     CREATE_ENTITY: translate('save'),
     UPDATE_ENTITY: translate('update'),

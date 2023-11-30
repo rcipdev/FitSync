@@ -1,7 +1,7 @@
 const create = async (Model, req, res) => {
   try {
     // Creating a new document in the collection
-
+    console.log(req.body);
     const result = await new Model(req.body).save();
 
     // Returning successfull response
@@ -11,6 +11,7 @@ const create = async (Model, req, res) => {
       message: 'Successfully Created the document in Model ',
     });
   } catch (error) {
+    console.log(error);
     // If error is thrown by Mongoose due to required validations
     if (error.name == 'ValidationError') {
       return res.status(400).json({

@@ -10,51 +10,42 @@ const employeeSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  name: {
+  walking: {
     type: String,
-    trim: true,
     required: true,
   },
-  surname: {
+  cycling: {
     type: String,
-    trim: true,
     required: true,
   },
-  birthday: {
+  threadmill: {
+    type: String,
+    required: true,
+  },
+  yoga: {
+    type: String,
+    required: true,
+  },
+  caloriesBurnt: {
+    type: String,
+  },
+  date: {
     type: Date,
     required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  weight: {
-    type: String,
-    required: true,
-  },
-  targetweight: {
-    type: String,
-    required: true,
-  },
-  address: {
-    type: String,
-    trim: true,
-  },
-  phone: {
-    type: String,
-    trim: true,
   },
   email: {
     type: String,
     trim: true,
   },
-  status: {
-    type: String,
-    default: '1',
-  },
   created: {
     type: Date,
     default: Date.now,
+  },
+  client: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Client',
+    required: true,
+    autopopulate: true,
   },
 });
 employeeSchema.plugin(require('mongoose-autopopulate'));

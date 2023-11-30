@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 
 const Model = mongoose.model('Client');
-const QuoteModel = mongoose.model('Quote');
-const InvoiceModel = mongoose.model('Invoice');
 
 const summary = async (req, res) => {
   try {
@@ -50,29 +48,6 @@ const summary = async (req, res) => {
               $count: 'count',
             },
           ],
-          activeClients: [
-            {
-              $lookup: {
-                from: QuoteModel.collection.name,
-                localField: '_id', // Match _id from ClientModel
-                foreignField: 'client', // Match client field in QuoteModel
-                as: 'quotes',
-              },
-            },
-            {
-              $match: {
-                'quotes.removed': false,
-              },
-            },
-            {
-              $group: {
-                _id: '$_id',
-              },
-            },
-            {
-              $count: 'count',
-            },
-          ],
         },
       },
     ];
@@ -82,10 +57,8 @@ const summary = async (req, res) => {
     const result = aggregationResult[0];
     const totalClients = result.totalClients[0] ? result.totalClients[0].count : 0;
     const totalNewClients = result.newClients[0] ? result.newClients[0].count : 0;
-    const activeClients = result.activeClients[0] ? result.activeClients[0].count : 0;
 
-    const totalActiveClientsPercentage =
-      totalClients > 0 ? (activeClients / totalClients) * 100 : 0;
+    const totalActiveClientsPercentage = 100;
     const totalNewClientsPercentage = totalClients > 0 ? (totalNewClients / totalClients) * 100 : 0;
 
     return res.status(200).json({

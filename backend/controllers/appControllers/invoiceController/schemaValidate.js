@@ -1,11 +1,11 @@
 const Joi = require('joi');
 const schema = Joi.object({
   client: Joi.alternatives().try(Joi.string(), Joi.object()).required(),
-  number: Joi.number().required(),
-  year: Joi.number().required(),
+  // number: Joi.number().required(),
+  // year: Joi.number().required(),
   status: Joi.string().required(),
   note: Joi.string().allow(''),
-  expiredDate: Joi.date().required(),
+  // expiredDate: Joi.date().required(),
   date: Joi.date().required(),
   // array cannot be empty
   items: Joi.array()
@@ -20,7 +20,7 @@ const schema = Joi.object({
       }).required()
     )
     .required(),
-  taxRate: Joi.alternatives().try(Joi.number(), Joi.string()).required(),
+  // taxRate: Joi.alternatives().try(Joi.number(), Joi.string()).required(),
 });
 
 module.exports = schema;

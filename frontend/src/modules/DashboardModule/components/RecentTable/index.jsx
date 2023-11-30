@@ -59,15 +59,15 @@ export default function RecentTable({ ...props }) {
             items,
             onClick: ({ key }) => {
               switch (key) {
-                case 'read':
-                  handleRead(record);
-                  break;
+                // case 'read':
+                //   handleRead(record);
+                //   break;
                 case 'edit':
                   handleEdit(record);
                   break;
-                case 'download':
-                  handleDownload(record);
-                  break;
+                // case 'download':
+                //   handleDownload(record);
+                //   break;
 
                 default:
                   break;

@@ -60,14 +60,19 @@ function Sidebar({ collapsible }) {
       label: <Link to={'/lead'}>{'Diet'}</Link>,
     },
     {
-      key: 'offer',
-      icon: <FileOutlined />,
-      label: <Link to={'/offer'}>{translate('offer')}</Link>,
+      key: 'Workout',
+      icon: <UserOutlined />,
+      label: <Link to={'/employee'}>{translate('Workout')}</Link>,
     },
+    // {
+    //   key: 'offer',
+    //   icon: <FileOutlined />,
+    //   label: <Link to={'/offer'}>{translate('offer')}</Link>,
+    // },
     {
-      key: 'customer',
+      key: 'Users',
       icon: <CustomerServiceOutlined />,
-      label: <Link to={'/customer'}>{translate('customer')}</Link>,
+      label: <Link to={'/customer'}>{translate('Users')}</Link>,
     },
     // { key: 'order', icon: <ShopOutlined />, label: <Link to={'/'}>Lead</Link> Order },
     // { key: 'inventory', icon: <InboxOutlined />, label: <Link to={'/'}>Lead</Link> Inventory },
@@ -75,53 +80,49 @@ function Sidebar({ collapsible }) {
     {
       key: 'invoice',
       icon: <FileTextOutlined />,
-      label: <Link to={'/invoice'}>{translate('invoice')}</Link>,
+      label: <Link to={'/invoice'}>{'Budget'}</Link>,
     },
-    {
-      key: 'quote',
-      icon: <FileSyncOutlined />,
-      label: <Link to={'/quote'}>{translate('quote')}</Link>,
-    },
+    // {
+    //   key: 'quote',
+    //   icon: <FileSyncOutlined />,
+    //   label: <Link to={'/quote'}>{translate('quote')}</Link>,
+    // },
     {
       key: 'payment',
       icon: <CreditCardOutlined />,
-      label: <Link to={'/payment'}>{translate('payment')}</Link>,
+      label: <Link to={'/payment'}>{'Budget Spent'}</Link>,
     },
-    {
-      key: 'employee',
-      icon: <UserOutlined />,
-      label: <Link to={'/employee'}>{translate('employee')}</Link>,
-    },
-    {
-      key: 'admin',
-      icon: <TeamOutlined />,
-      label: <Link to={'/admin'}>{translate('admin')}</Link>,
-    },
+
+    // {
+    //   key: 'admin',
+    //   icon: <TeamOutlined />,
+    //   label: <Link to={'/admin'}>{translate('admin')}</Link>,
+    // },
     {
       label: translate('Settings'),
       key: 'settings',
       icon: <SettingOutlined />,
       children: [
-        {
-          key: 'generalSettings',
-          label: <Link to={'/settings'}>{translate('general_settings')}</Link>,
-        },
-        {
-          key: 'emailTemplates',
-          label: <Link to={'/email'}>{translate('email_templates')}</Link>,
-        },
+        // {
+        //   key: 'generalSettings',
+        //   label: <Link to={'/settings'}>{translate('general_settings')}</Link>,
+        // },
+        // {
+        //   key: 'emailTemplates',
+        //   label: <Link to={'/email'}>{translate('email_templates')}</Link>,
+        // },
         {
           key: 'paymentMode',
           label: <Link to={'/payment/mode'}>{translate('payment_mode')}</Link>,
         },
-        {
-          key: 'taxes',
-          label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
-        },
-        {
-          key: 'advancedSettings',
-          label: <Link to={'/settings/advanced'}>{translate('advanced_settings')}</Link>,
-        },
+        // {
+        //   key: 'taxes',
+        //   label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
+        // },
+        // {
+        //   key: 'advancedSettings',
+        //   label: <Link to={'/settings/advanced'}>{translate('advanced_settings')}</Link>,
+        // },
       ],
     },
   ];
@@ -171,10 +172,9 @@ function Sidebar({ collapsible }) {
             // eslint-disable-next-line no-undef
             src={logoIcon}
             alt="Logo"
-            style={{  marginLeft: '10px', height: '70px' }}
+            style={{ marginLeft: '10px', height: '70px' }}
           />
         )}
-        
       </div>
       <Menu items={items} mode="inline" theme={'light'} />
     </Sider>

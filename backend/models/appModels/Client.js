@@ -13,18 +13,17 @@ const clientSchema = new mongoose.Schema({
   company: {
     type: String,
     trim: true,
-    unique: true,
-    required: true,
+    // unique: true,
+    // required: true,
   },
-  managerName: {
+  gender: {
+    type: String,
+    default: 'Select',
+    // required: true,
+  },
+  phone: {
     type: String,
     trim: true,
-    required: true,
-  },
-  managerSurname: {
-    type: String,
-    trim: true,
-    required: true,
   },
   bankAccount: {
     type: String,
@@ -62,11 +61,11 @@ const clientSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  phone: {
-    type: String,
-    trim: true,
-    required: true,
-  },
+  //phone: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
   fax: {
     type: String,
     trim: true,
@@ -78,8 +77,6 @@ const clientSchema = new mongoose.Schema({
   email: {
     type: String,
     trim: true,
-    lowercase: true,
-    unique: true,
   },
   website: {
     type: String,

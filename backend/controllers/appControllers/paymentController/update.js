@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Model = mongoose.model('Payment');
 const Invoice = mongoose.model('Invoice');
-const custom = require('@/controllers/middlewaresControllers/pdfController');
 
 const { calculate } = require('@/helpers');
 
@@ -76,8 +75,6 @@ const update = async (req, res) => {
         new: true, // return the new result instead of the old one
       }
     ).exec();
-
-    await custom.generatePdf('Payment', { filename: 'payment', format: 'A4' }, result);
 
     res.status(200).json({
       success: true,

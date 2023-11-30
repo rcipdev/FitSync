@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Model = mongoose.model('Payment');
 const Invoice = mongoose.model('Invoice');
-const custom = require('@/controllers/middlewaresControllers/pdfController');
 const currency = require('currency.js');
 const { calculate } = require('@/helpers');
 
@@ -75,12 +74,10 @@ const create = async (req, res) => {
       }
     ).exec();
 
-    await custom.generatePdf('Payment', { filename: 'payment', format: 'A4' }, result);
-
     res.status(200).json({
       success: true,
       result: updatePath,
-      message: 'Payment Invoice created successfully',
+      message: 'created successfully',
     });
   } catch (error) {
     // If error is thrown by Mongoose due to required validations

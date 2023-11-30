@@ -19,14 +19,6 @@ export default function DashboardModule() {
     request.summary({ entity: 'invoice' })
   );
 
-  const { result: quoteResult, isLoading: quoteLoading } = useFetch(() =>
-    request.summary({ entity: 'quote' })
-  );
-
-  const { result: offerResult, isLoading: offerLoading } = useFetch(() =>
-    request.summary({ entity: 'offer' })
-  );
-
   const { result: paymentResult, isLoading: paymentLoading } = useFetch(() =>
     request.summary({ entity: 'payment' })
   );
@@ -73,26 +65,26 @@ export default function DashboardModule() {
     {
       result: invoiceResult,
       isLoading: invoiceLoading,
-      entity: 'invoice',
-      title: translate('Invoices preview'),
+      entity: 'Budget',
+      title: 'Budget Preview',
     },
-    {
-      result: quoteResult,
-      isLoading: quoteLoading,
-      entity: 'quote',
-      title: translate('quotes preview'),
-    },
-    {
-      result: offerResult,
-      isLoading: offerLoading,
-      entity: 'offer',
-      title: translate('offers preview'),
-    },
+    // {
+    //   result: quoteResult,
+    //   isLoading: quoteLoading,
+    //   entity: 'quote',
+    //   title: translate('quotes preview'),
+    // },
+    // {
+    //   result: offerResult,
+    //   isLoading: offerLoading,
+    //   entity: 'offer',
+    //   title: translate('offers preview'),
+    // },
     {
       result: paymentResult,
       isLoading: paymentLoading,
-      entity: 'payment',
-      title: translate('payments preview'),
+      entity: 'Budget Spent',
+      title: 'Budget Spent Preview',
     },
   ];
 
@@ -104,9 +96,9 @@ export default function DashboardModule() {
     return (
       <SummaryCard
         key={index}
-        title={data?.entity === 'payment' ? translate('Payment') : translate(data?.entity)}
+        title={translate(data?.entity)}
         tagColor={
-          data?.entity === 'invoice' ? 'cyan' : data?.entity === 'quote' ? 'purple' : 'green'
+          data?.entity === 'invoice' ? 'cyan' : data?.entity === 'Budget Spent' ? 'purple' : 'green'
         }
         prefix={translate('This month')}
         isLoading={isLoading}
@@ -158,37 +150,38 @@ export default function DashboardModule() {
           <div className="whiteBox shadow" style={{ height: 458 }}>
             <Row className="pad20" gutter={[0, 0]}>
               {statisticCards}
+              <CustomerPreviewCard
+                isLoading={clientLoading}
+                activeCustomer={clientResult?.active}
+                newCustomer={clientResult?.new}
+              />
             </Row>
           </div>
         </Col>
-        <Col className="gutter-row w-full" sm={{ span: 24 }} md={{ span: 24 }} lg={{ span: 6 }}>
-          <CustomerPreviewCard
-            isLoading={clientLoading}
-            activeCustomer={clientResult?.active}
-            newCustomer={clientResult?.new}
-          />
-        </Col>
+        {/* <Col className="gutter-row w-full" sm={{ span: 24 }} md={{ span: 24 }} lg={{ span: 6 }}>
+          
+        </Col> */}
       </Row>
       <div className="space30"></div>
       <Row gutter={[32, 32]}>
         <Col className="gutter-row w-full" sm={{ span: 24 }} lg={{ span: 12 }}>
           <div className="whiteBox shadow pad20" style={{ height: '100%' }}>
             <h3 style={{ color: '#22075e', marginBottom: 5, padding: '0 20px 20px' }}>
-              {translate('Recent Invoices')}
+              {'Recent Budget'}
             </h3>
 
             <RecentTable entity={'invoice'} dataTableColumns={dataTableColumns} />
           </div>
         </Col>
 
-        <Col className="gutter-row w-full" sm={{ span: 24 }} lg={{ span: 12 }}>
+        {/* <Col className="gutter-row w-full" sm={{ span: 24 }} lg={{ span: 12 }}>
           <div className="whiteBox shadow pad20" style={{ height: '100%' }}>
             <h3 style={{ color: '#22075e', marginBottom: 5, padding: '0 20px 20px' }}>
               {translate('Recent Quotes')}
             </h3>
             <RecentTable entity={'quote'} dataTableColumns={dataTableColumns} />
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </>
   );
