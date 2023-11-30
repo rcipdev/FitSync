@@ -86,8 +86,8 @@ export default function Quote() {
 
   const Labels = {
     PANEL_TITLE: translate('quote'),
-    DATATABLE_TITLE: translate('quote_list'),
-    ADD_NEW_ENTITY: translate('add_new_quote'),
+    DATATABLE_TITLE: translate('future_spend'),
+    ADD_NEW_ENTITY: translate('add_future_budget'),
     ENTITY_NAME: translate('quote'),
     CREATE_ENTITY: translate('save'),
     UPDATE_ENTITY: translate('update'),

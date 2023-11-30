@@ -44,7 +44,7 @@ export default function LoginForm() {
         />
       </Form.Item>
       <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
+        <Form.Item name="remember" noStyle>
           <Checkbox>{translate('Remember me')}</Checkbox>
         </Form.Item>
 
@@ -55,3 +55,5 @@ export default function LoginForm() {
     </>
   );
 }
+
+//valuePropName="checked"

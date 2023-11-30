@@ -57,7 +57,7 @@ function Sidebar({ collapsible }) {
     {
       key: 'lead',
       icon: <UserAddOutlined />,
-      label: <Link to={'/lead'}>{translate('lead')}</Link>,
+      label: <Link to={'/lead'}>{'Diet'}</Link>,
     },
     {
       key: 'offer',
@@ -65,9 +65,9 @@ function Sidebar({ collapsible }) {
       label: <Link to={'/offer'}>{translate('offer')}</Link>,
     },
     {
-      key: 'customer',
+      key: 'Users',
       icon: <CustomerServiceOutlined />,
-      label: <Link to={'/customer'}>{translate('customer')}</Link>,
+      label: <Link to={'/customer'}>{translate('Users')}</Link>,
     },
     // { key: 'order', icon: <ShopOutlined />, label: <Link to={'/'}>Lead</Link> Order },
     // { key: 'inventory', icon: <InboxOutlined />, label: <Link to={'/'}>Lead</Link> Inventory },
@@ -88,9 +88,9 @@ function Sidebar({ collapsible }) {
       label: <Link to={'/payment'}>{translate('payment')}</Link>,
     },
     {
-      key: 'employee',
+      key: 'Workout',
       icon: <UserOutlined />,
-      label: <Link to={'/employee'}>{translate('employee')}</Link>,
+      label: <Link to={'/employee'}>{translate('Workout')}</Link>,
     },
     {
       key: 'admin',

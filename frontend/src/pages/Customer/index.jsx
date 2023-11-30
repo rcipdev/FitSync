@@ -17,38 +17,34 @@ export default function Customer() {
 
   const readColumns = [
     {
-      title: translate('Company'),
+      title: translate('Name'),
       dataIndex: 'company',
     },
     {
-      title: translate('Manager first name'),
-      dataIndex: 'managerName',
-    },
-    {
-      title: translate('Manager last name'),
-      dataIndex: 'managerSurname',
-    },
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
+      title: translate('Gender'),
+      dataIndex: 'gender',
     },
     {
       title: translate('Phone'),
       dataIndex: 'phone',
     },
+    {
+      title: translate('Email'),
+      dataIndex: 'email',
+    },
   ];
   const dataTableColumns = [
     {
-      title: translate('Company'),
+      title: translate('Name'),
       dataIndex: 'company',
     },
     {
-      title: translate('Manager first name'),
-      dataIndex: 'managerName',
+      title: translate('Gender'),
+      dataIndex: 'gender',
     },
     {
-      title: translate('Manager last name'),
-      dataIndex: 'managerSurname',
+      title: translate('phone'),
+      dataIndex: 'phone',
     },
     {
       title: translate('Email'),

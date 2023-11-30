@@ -1,4 +1,4 @@
-import { Form, Input } from 'antd';
+import { Form, Input, Select } from 'antd';
 import { validatePhoneNumber } from '@/utils/helpers';
 
 import useLanguage from '@/locale/useLanguage';
@@ -16,70 +16,47 @@ export default function CustomerForm({ isUpdateForm = false }) {
   return (
     <>
       <Form.Item
-        label={translate('company')}
+        label={translate('Name')}
         name="company"
         rules={[
           {
             required: true,
           },
-          {
-            validator: validateEmptyString,
-          },
+          // {
+          //   validator: validateEmptyString,
+          // },
         ]}
       >
         <Input />
       </Form.Item>
       <Form.Item
-        label={translate('Manager first Name')}
-        name="managerName"
+        label={translate('gender')}
+        name="gender"
         rules={[
           {
             required: true,
           },
-          {
-            validator: validateEmptyString,
-          },
         ]}
-        style={{
-          display: 'inline-block',
-          width: 'calc(50%)',
-          paddingRight: '5px',
-        }}
+        initialValue={'select'}
       >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label={translate('Manager Last Name')}
-        name="managerSurname"
-        rules={[
-          {
-            required: true,
-          },
-          {
-            validator: validateEmptyString,
-          },
-        ]}
-        style={{
-          display: 'inline-block',
-          width: 'calc(50%)',
-          paddingLeft: '5px',
-        }}
-      >
-        <Input />
+        <Select
+          options={[
+            { value: 'select', label: translate('select') },
+            { value: 'Men', label: translate('Men') },
+            { value: 'Women', label: translate('Women') },
+          ]}
+        ></Select>
       </Form.Item>
 
       <Form.Item
         name="phone"
-        label={translate('Phone')}
+        label={translate('phone')}
         rules={[
           {
             required: true,
           },
           {
-            validator: validateEmptyString,
-          },
-          {
-            pattern: validatePhoneNumber,
+            pattern: validatePhoneNumber, // importing regex from helper.js utility file to validate
           },
         ]}
       >
@@ -94,9 +71,6 @@ export default function CustomerForm({ isUpdateForm = false }) {
           },
           {
             required: true,
-          },
-          {
-            validator: validateEmptyString,
           },
         ]}
       >

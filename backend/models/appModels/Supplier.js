@@ -15,15 +15,14 @@ const supplierSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  managerName: {
+  gender: {
     type: String,
-    trim: true,
-    required: true,
+    default: 'Select',
+    // required: true,
   },
-  managerSurname: {
+  phone: {
     type: String,
     trim: true,
-    required: true,
   },
   bankAccount: {
     type: String,

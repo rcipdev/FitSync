@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Model = mongoose.model('Payment');
 const Invoice = mongoose.model('Invoice');
 const custom = require('@/controllers/middlewaresControllers/pdfController');
-
+const currency = require('currency.js');
 const { calculate } = require('@/helpers');
 
 const create = async (req, res) => {
@@ -28,7 +28,9 @@ const create = async (req, res) => {
       credit: previousCredit,
     } = currentInvoice;
 
-    const maxAmount = calculate.sub(calculate.sub(previousTotal, previousDiscount), previousCredit);
+    const maxAmount = currency(currency(previousTotal).subtract(previousDiscount)).subtract(
+      previousCredit
+    );
 
     if (req.body.amount > maxAmount) {
       return res.status(202).json({
@@ -54,9 +56,9 @@ const create = async (req, res) => {
     const { id: invoiceId, total, discount, credit } = currentInvoice;
 
     let paymentStatus =
-      calculate.sub(total, discount) === calculate.add(credit, amount)
+      currency(total).subtract(discount) === currency(credit).add(amount)
         ? 'paid'
-        : calculate.add(credit, amount) > 0
+        : currency(credit).add(amount) > 0
         ? 'partially'
         : 'unpaid';
 

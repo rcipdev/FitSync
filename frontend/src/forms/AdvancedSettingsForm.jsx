@@ -86,7 +86,6 @@ export default function AdvancedSettingsForm({ isUpdateForm = false }) {
               value: 'crm_settings',
               label: translate('CRM Settings'),
             },
-
             {
               value: 'finance_settings',
               label: translate('Finance Settings'),
@@ -95,10 +94,7 @@ export default function AdvancedSettingsForm({ isUpdateForm = false }) {
               value: 'company_settings',
               label: translate('Company Settings'),
             },
-            {
-              value: 'money_format_settings',
-              label: translate('Money Format Settings'),
-            },
+    
           ]}
         />
       </Form.Item>

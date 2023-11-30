@@ -8,92 +8,59 @@ export default function Employee() {
   const translate = useLanguage();
   const entity = 'employee';
   const searchConfig = {
-    displayLabels: ['name', 'surname'],
+    
+    splayLabels: ['name', 'surname'],
     searchFields: 'name,surname,birthday',
     outputValue: '_id',
   };
 
   const entityDisplayLabels = ['name', 'surname'];
 
+
   const dataTableColumns = [
     {
-      title: translate('first name'),
-      dataIndex: 'name',
+      title: translate('Walking in mins'),
+      dataIndex: 'walking',
     },
     {
-      title: translate('last name'),
-      dataIndex: 'surname',
+      title: translate('Cycling in mins'),
+      dataIndex: 'cycling',
     },
     {
-      title: translate('Birthday'),
-      dataIndex: 'birthday',
-      render: (date) => {
-        return dayjs(date).format('DD/MM/YYYY');
-      },
+      title: translate('Treadmill in mins'),
+      dataIndex: 'threadmill',
     },
     {
-      title: translate('Weight'),
-      dataIndex: 'weight',
+      title: translate('Yoga in mins'),
+      dataIndex: 'yoga',
     },
     {
-      title: translate('Relation'),
-      dataIndex: 'relation',
-    },
-    {
-      title: translate('Phone'),
-      dataIndex: 'phone',
-    },
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
+      title: translate('Calories Burnt'),
+      dataIndex: 'caloriesburnt',
     },
   ];
 
   const readColumns = [
     {
-      title: translate('first name'),
-      dataIndex: 'name',
+      title: translate('Walking in mins'),
+      dataIndex: 'walking',
     },
     {
-      title: translate('last name'),
-      dataIndex: 'surname',
+      title: translate('Cycling in mins'),
+      dataIndex: 'cycling',
     },
     {
-      title: translate('Birthday'),
-      dataIndex: 'birthday',
-      isDate: true,
+      title: translate('Treadmill in mins'),
+      dataIndex: 'threadmill',
     },
     {
-      title: translate('birthplace'),
-      dataIndex: 'birthplace',
+      title: translate('Yoga in mins'),
+      dataIndex: 'yoga',
     },
     {
-      title: translate('gender'),
-      dataIndex: 'gender',
-    },
-    {
-      title: translate('Weight'),
-      dataIndex: 'weight',
-    },
-    {
-      title: translate('Relation'),
-      dataIndex: 'relation',
-    },
-    {
-      title: translate('address'),
-      dataIndex: 'address',
-    },
-    {
-      title: translate('state'),
-      dataIndex: 'state',
-    },
-    {
-      title: translate('Phone'),
-      dataIndex: 'phone',
-    },
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
+      title: translate('Calories Burnt'),
+      dataIndex: 'caloriesburnt',
+      render: (text, record) => calculateCaloriesBurnt(record),
     },
   ];
 
