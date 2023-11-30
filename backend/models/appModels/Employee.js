@@ -10,47 +10,25 @@ const employeeSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  name: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  surname: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  birthday: {
-    type: Date,
-    required: true,
-  },
-  gender: {
+  walking: {
     type: String,
     required: true,
   },
-  weight: {
+  cycling: {
     type: String,
     required: true,
   },
-  targetweight: {
+  threadmill: {
     type: String,
     required: true,
   },
-  address: {
+  yoga: {
     type: String,
-    trim: true,
-  },
-  phone: {
-    type: String,
-    trim: true,
+    required: true,
   },
   email: {
     type: String,
     trim: true,
-  },
-  status: {
-    type: String,
-    default: '1',
   },
   created: {
     type: Date,
