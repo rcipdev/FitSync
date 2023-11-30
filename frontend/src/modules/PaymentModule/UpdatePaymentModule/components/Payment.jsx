@@ -58,7 +58,7 @@ export default function Payment({ config, currentItem }) {
                 onClick={() => navigate(`/invoice/read/${currentErp._id}`)}
                 icon={<FileTextOutlined />}
               >
-                label={translate('Show Budget')}
+                {translate('Show Budget')}
               </Button>,
             ]}
             style={{
@@ -77,7 +77,10 @@ export default function Payment({ config, currentItem }) {
           lg={{ span: 10, order: 2, push: 4 }}
         >
           <div className="space50"></div>
-          <Descriptions title={`${translate('Client')} : ${currentErp.client.company}`} column={1}>
+          <Descriptions
+            title={`${translate('Family Member')} : ${currentErp.client.company}`}
+            column={1}
+          >
             <Descriptions.Item label={translate('email')}>
               {currentErp.client.email}
             </Descriptions.Item>

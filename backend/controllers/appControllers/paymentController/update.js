@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Model = mongoose.model('Payment');
 const Invoice = mongoose.model('Invoice');
+const currency = require('currency.js');
 
 const { calculate } = require('@/helpers');
 
@@ -25,8 +26,8 @@ const update = async (req, res) => {
 
     const { amount: currentAmount } = req.body;
 
-    const changedAmount = calculate.sub(currentAmount, previousAmount);
-    const maxAmount = calculate.sub(total, calculate.add(discount, previousCredit));
+    const changedAmount = currency(currentAmount).subtract(previousAmount);
+    const maxAmount = currency(total).subtract(currency(discount).add(previousCredit));
 
     if (changedAmount > maxAmount) {
       return res.status(202).json({
@@ -38,9 +39,9 @@ const update = async (req, res) => {
     }
 
     let paymentStatus =
-      calculate.sub(total, discount) === calculate.add(previousCredit, changedAmount)
-        ? 'paid'
-        : calculate.add(previousCredit, changedAmount) > 0
+      currency(total).subtract(discount) === currency(previousCredit).add(changedAmount)
+        ? 'spent'
+        : currency(previousCredit).add(changedAmount) > 0
         ? 'partially'
         : 'unpaid';
 
@@ -58,19 +59,6 @@ const update = async (req, res) => {
     const result = await Model.findOneAndUpdate(
       { _id: req.params.id, removed: false },
       { $set: updates },
-      {
-        new: true, // return the new result instead of the old one
-      }
-    ).exec();
-
-    const updateInvoice = await Invoice.findOneAndUpdate(
-      { _id: result.invoice._id.toString() },
-      {
-        $inc: { credit: changedAmount },
-        $set: {
-          paymentStatus: paymentStatus,
-        },
-      },
       {
         new: true, // return the new result instead of the old one
       }

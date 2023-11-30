@@ -54,7 +54,6 @@ const create = async (req, res) => {
     const fileId = 'invoice-' + result._id + '.pdf';
     const updateResult = await Model.findOneAndUpdate(
       { _id: result._id },
-      { pdfPath: fileId },
       {
         new: true,
       }

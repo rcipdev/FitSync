@@ -21,10 +21,10 @@ const update = async (req, res) => {
       });
     }
 
-    const previousInvoice = await Model.findOne({
-      _id: req.params.id,
-      removed: false,
-    });
+    // const previousInvoice = await Model.findOne({
+    //   _id: req.params.id,
+    //   removed: false,
+    // });
 
     const { items = [], taxRate = 0, discount = 0 } = req.body;
 
@@ -43,6 +43,7 @@ const update = async (req, res) => {
 
     //Calculate the items array with subTotal, total, taxTotal
     items.map((item) => {
+      // console.log(currency(3, {}).multiply());
       let total = currency(item['quantity']).multiply(item['price']);
       //sub total
       subTotal = currency(subTotal).add(total);
@@ -54,18 +55,21 @@ const update = async (req, res) => {
 
     body['subTotal'] = subTotal;
     body['taxTotal'] = taxTotal;
-    body['total'] = total.toString();
+    body['total'] = total;
     body['items'] = items;
-    body['pdfPath'] = '';
-    // Find document by id and updates with the required fields
+
     let paymentStatus = currency(total).subtract(discount) === 0 ? 'spent' : 'using';
 
     body['paymentStatus'] = paymentStatus;
     body['createdBy'] = req.admin._id;
-
-    const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
-      new: true, // return the new result instead of the old one
-    }).exec();
+    // Creating a new document in the collection
+    const result = await new Model(body).save();
+    const updateResult = await Model.findOneAndUpdate(
+      { _id: result._id },
+      {
+        new: false,
+      }
+    ).exec();
 
     return res.status(200).json({
       success: true,

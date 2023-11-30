@@ -56,7 +56,7 @@ const create = async (req, res) => {
 
     let paymentStatus =
       currency(total).subtract(discount) === currency(credit).add(amount)
-        ? 'paid'
+        ? 'spent'
         : currency(credit).add(amount) > 0
         ? 'partially'
         : 'unpaid';
