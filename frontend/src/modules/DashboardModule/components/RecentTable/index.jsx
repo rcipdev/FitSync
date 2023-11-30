@@ -26,11 +26,6 @@ export default function RecentTable({ ...props }) {
       key: 'edit',
       icon: <EditOutlined />,
     },
-    {
-      label: translate('Download'),
-      key: 'download',
-      icon: <FilePdfOutlined />,
-    },
   ];
 
   const navigate = useNavigate();
@@ -59,20 +54,13 @@ export default function RecentTable({ ...props }) {
             items,
             onClick: ({ key }) => {
               switch (key) {
-                // case 'read':
-                //   handleRead(record);
-                //   break;
                 case 'edit':
                   handleEdit(record);
                   break;
-                // case 'download':
-                //   handleDownload(record);
-                //   break;
 
                 default:
                   break;
               }
-              // else if (key === '2')handleCloseTask
             },
           }}
           trigger={['click']}
