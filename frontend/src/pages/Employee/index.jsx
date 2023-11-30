@@ -67,8 +67,8 @@ export default function Employee() {
 
   const Labels = {
     PANEL_TITLE: translate('employee'),
-    DATATABLE_TITLE: translate('employee_list'),
-    ADD_NEW_ENTITY: translate('add_new_employee'),
+    DATATABLE_TITLE: translate('Workout'),
+    ADD_NEW_ENTITY: translate('Add New Workout'),
     ENTITY_NAME: translate('employee'),
     CREATE_ENTITY: translate('save'),
     UPDATE_ENTITY: translate('update'),
