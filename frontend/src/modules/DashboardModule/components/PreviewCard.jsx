@@ -19,54 +19,30 @@ const colours = {
 
 const defaultStatistics = [
   {
-    tag: 'draft',
+    tag: 'New',
     value: 0,
   },
   {
-    tag: 'pending',
+    tag: 'Spent',
     value: 0,
   },
   {
-    tag: 'sent',
-    value: 0,
-  },
-  {
-    tag: 'accepted',
-    value: 0,
-  },
-  {
-    tag: 'declined',
-    value: 0,
-  },
-  {
-    tag: 'expired',
+    tag: 'Using',
     value: 0,
   },
 ];
 
 const defaultInvoiceStatistics = [
   {
-    tag: 'draft',
+    tag: 'New',
     value: 0,
   },
   {
-    tag: 'pending',
+    tag: 'Spent',
     value: 0,
   },
   {
-    tag: 'overdue',
-    value: 0,
-  },
-  {
-    tag: 'paid',
-    value: 0,
-  },
-  {
-    tag: 'unpaid',
-    value: 0,
-  },
-  {
-    tag: 'partially',
+    tag: 'Using',
     value: 0,
   },
 ];

@@ -8,13 +8,12 @@ const { hasPermission } = require('@/middlewares/permission');
 
 const employeeController = require('@/controllers/appControllers/employeeController');
 const paymentModeController = require('@/controllers/appControllers/paymentModeController');
-const taxController = require('@/controllers/appControllers/taxController');
 const clientController = require('@/controllers/appControllers/clientController');
 const leadController = require('@/controllers/appControllers/leadController');
 const invoiceController = require('@/controllers/appControllers/invoiceController');
 const paymentController = require('@/controllers/appControllers/paymentController');
 
-// //_________________________________ API for employees_____________________
+//workout routes
 router
   .route('/employee/create')
   .post(hasPermission('create'), catchErrors(employeeController.create));
@@ -31,7 +30,7 @@ router
   .get(hasPermission('read'), catchErrors(employeeController.calculateCalories));
 router.route('/employee/filter').get(hasPermission('read'), catchErrors(employeeController.filter));
 
-// //_____________________________________ API for payment mode_____________________
+//payment modes
 router
   .route('/paymentMode/create')
   .post(hasPermission('create'), catchErrors(paymentModeController.create));
@@ -54,15 +53,7 @@ router
   .route('/paymentMode/filter')
   .get(hasPermission('read'), catchErrors(paymentModeController.filter));
 
-// //_____________________________________ API for taxes _______________________________
-router.route('/taxes/create').post(hasPermission('create'), catchErrors(taxController.create));
-router.route('/taxes/read/:id').get(hasPermission('read'), catchErrors(taxController.read));
-router.route('/taxes/update/:id').patch(hasPermission('update'), catchErrors(taxController.update));
-router.route('/taxes/search').get(hasPermission('read'), catchErrors(taxController.search));
-router.route('/taxes/list').get(hasPermission('read'), catchErrors(taxController.list));
-router.route('/taxes/filter').get(hasPermission('read'), catchErrors(taxController.filter));
-
-// //_____________________________________ API for clients __________________________________________________
+//user routes
 router.route('/client/create').post(hasPermission('create'), catchErrors(clientController.create));
 router.route('/client/read/:id').get(hasPermission('read'), catchErrors(clientController.read));
 router
@@ -76,19 +67,18 @@ router.route('/client/list').get(hasPermission('read'), catchErrors(clientContro
 router.route('/client/filter').get(hasPermission('read'), catchErrors(clientController.filter));
 router.route('/client/summary').get(hasPermission('read'), catchErrors(clientController.summary));
 
-// //_____________________________________ API for leads __________________________________________________
+//health data
 router.route('/lead/create').post(hasPermission('create'), catchErrors(leadController.create));
 router.route('/lead/read/:id').get(hasPermission('read'), catchErrors(leadController.read));
 router.route('/lead/update/:id').patch(hasPermission('update'), catchErrors(leadController.update));
 router
   .route('/lead/delete/:id')
   .delete(hasPermission('delete'), catchErrors(leadController.delete));
-// router.route('/lead/search').get(hasPermission('read'), catchErrors(leadController.search));
 router.route('/lead/list').get(hasPermission('read'), catchErrors(leadController.list));
 router.route('/lead/filter').get(hasPermission('read'), catchErrors(leadController.filter));
 router.route('/lead/summary').get(hasPermission('read'), catchErrors(leadController.summary));
 
-// //_________________________________________________________________API for invoices_____________________
+//budget routes
 router
   .route('/invoice/create')
   .post(hasPermission('create'), catchErrors(invoiceController.create));
@@ -110,8 +100,7 @@ router
   .route('/invoice/mail')
   .post(hasPermission('create'), catchErrors(invoiceController.sendMail));
 
-// //_____________________________________________ API for client payments_________________
-
+//budget spent routes
 router
   .route('/payment/create')
   .post(hasPermission('create'), catchErrors(paymentController.create));
@@ -125,10 +114,6 @@ router
 router.route('/payment/search').get(hasPermission('read'), catchErrors(paymentController.search));
 router.route('/payment/list').get(hasPermission('read'), catchErrors(paymentController.list));
 router.route('/payment/filter').get(hasPermission('read'), catchErrors(paymentController.filter));
-router
-  .route('/payment/pdf/:id')
-  .get(hasPermission('read'), catchErrors(paymentController.generatePDF));
 router.route('/payment/summary').get(hasPermission('read'), catchErrors(paymentController.summary));
 
-//router.route('/payment/mail).post( hasPermission('create'),catchErrors(paymentController.sendMail));
 module.exports = router;

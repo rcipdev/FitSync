@@ -29,10 +29,6 @@ export default function DashboardModule() {
 
   const dataTableColumns = [
     {
-      title: translate('number'),
-      dataIndex: 'number',
-    },
-    {
       title: translate('Client'),
       dataIndex: ['client', 'company'],
     },
@@ -68,18 +64,6 @@ export default function DashboardModule() {
       entity: 'Budget',
       title: 'Budget Preview',
     },
-    // {
-    //   result: quoteResult,
-    //   isLoading: quoteLoading,
-    //   entity: 'quote',
-    //   title: translate('quotes preview'),
-    // },
-    // {
-    //   result: offerResult,
-    //   isLoading: offerLoading,
-    //   entity: 'offer',
-    //   title: translate('offers preview'),
-    // },
     {
       result: paymentResult,
       isLoading: paymentLoading,
@@ -158,9 +142,6 @@ export default function DashboardModule() {
             </Row>
           </div>
         </Col>
-        {/* <Col className="gutter-row w-full" sm={{ span: 24 }} md={{ span: 24 }} lg={{ span: 6 }}>
-          
-        </Col> */}
       </Row>
       <div className="space30"></div>
       <Row gutter={[32, 32]}>
@@ -173,15 +154,6 @@ export default function DashboardModule() {
             <RecentTable entity={'invoice'} dataTableColumns={dataTableColumns} />
           </div>
         </Col>
-
-        {/* <Col className="gutter-row w-full" sm={{ span: 24 }} lg={{ span: 12 }}>
-          <div className="whiteBox shadow pad20" style={{ height: '100%' }}>
-            <h3 style={{ color: '#22075e', marginBottom: 5, padding: '0 20px 20px' }}>
-              {translate('Recent Quotes')}
-            </h3>
-            <RecentTable entity={'quote'} dataTableColumns={dataTableColumns} />
-          </div>
-        </Col> */}
       </Row>
     </>
   );

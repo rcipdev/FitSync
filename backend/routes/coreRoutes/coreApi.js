@@ -19,7 +19,6 @@ router
   .route('/admin/password-update/:id')
   .patch(hasPermission(), catchErrors(adminController.updatePassword));
 
-//
 router
   .route('/profile/update/:id')
   .patch(hasPermission(), catchErrors(adminController.updateProfile));
