@@ -64,7 +64,7 @@ const create = async (req, res) => {
     return res.status(200).json({
       success: true,
       result: updateResult,
-      message: 'Invoice created successfully',
+      message: 'Budget created successfully',
     });
   } catch (error) {
     console.log(error);
