@@ -3,18 +3,20 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
 const Admin = mongoose.model('Admin');
-
+const logout = require('./logout');
 const isValidAdminToken = async (req, res, next) => {
   try {
     const token = req.cookies.token;
 
-    if (!token)
+    if (!token) {
+      // logout();
       return res.status(401).json({
         success: false,
         result: null,
         message: 'No authentication token, authorization denied.',
         jwtExpired: true,
       });
+    }
 
     const verified = jwt.verify(token, process.env.JWT_SECRET);
 

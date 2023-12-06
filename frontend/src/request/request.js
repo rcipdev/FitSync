@@ -146,6 +146,21 @@ const request = {
       return errorHandler(error);
     }
   },
+
+  listDoctor: async () => {
+    try {
+      const response = await axios.get('doctor' + '/list');
+      successHandler(response, {
+        notifyOnSuccess: false,
+        notifyOnFailed: false,
+      });
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return errorHandler(error);
+    }
+  },
   listAll: async ({ entity }) => {
     try {
       const response = await axios.get(entity + '/listAll');

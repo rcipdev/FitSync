@@ -13,18 +13,17 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     // URL address
-    const address = req.get('origin');
+    // const address = req.get('origin');
 
-    // Call parse() method using url module
-    let urlObject = url.parse(address, true);
+    // // Call parse() method using url module
+    // let urlObject = url.parse(address, true);
 
-    const orginalHostname = urlObject.hostname;
-
-    let isLocalhost = false;
-    if (orginalHostname === '127.0.0.1' || orginalHostname === 'localhost') {
-      // Connection is from localhost
-      isLocalhost = true;
-    }
+    // const orginalHostname = urlObject.hostname;
+    // let isLocalhost = false;
+    // if (orginalHostname === '127.0.0.1' || orginalHostname === '13.127.36.67') {
+    //   // Connection is from localhost
+    //   isLocalhost = true;
+    // }
 
     // validate
     const objectSchema = Joi.object({
@@ -55,6 +54,7 @@ const login = async (req, res) => {
       });
 
     const isMatch = await bcrypt.compare(password, admin.password);
+    console.log(isMatch);
     if (!isMatch)
       return res.status(403).json({
         success: false,
@@ -77,7 +77,8 @@ const login = async (req, res) => {
         new: true,
       }
     ).exec();
-
+    console.log(token);
+    console.log(result);
     res
       .status(200)
       .cookie('token', token, {
