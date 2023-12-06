@@ -12,6 +12,7 @@ const clientController = require('@/controllers/appControllers/clientController'
 const leadController = require('@/controllers/appControllers/leadController');
 const invoiceController = require('@/controllers/appControllers/invoiceController');
 const paymentController = require('@/controllers/appControllers/paymentController');
+// const doctorsController = require('@/controllers/appControllers/doctorsController');
 
 //workout routes
 router
@@ -116,4 +117,6 @@ router.route('/payment/list').get(hasPermission('read'), catchErrors(paymentCont
 router.route('/payment/filter').get(hasPermission('read'), catchErrors(paymentController.filter));
 router.route('/payment/summary').get(hasPermission('read'), catchErrors(paymentController.summary));
 
+//doctors
+// router.route('/doctor/list').get(hasPermission('read'), catchErrors(doctorsController.list));
 module.exports = router;
