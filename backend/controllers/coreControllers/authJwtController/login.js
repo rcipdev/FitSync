@@ -83,9 +83,12 @@ const login = async (req, res) => {
       .status(200)
       .cookie('token', token, {
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
+        sameSite: 'none',
         httpOnly: true,
         secure: false,
+        domain: 'http://13.127.36.67',
         path: '/',
+        Partitioned: true,
       })
       .json({
         success: true,
