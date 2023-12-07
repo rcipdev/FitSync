@@ -24,7 +24,7 @@ const PaymentMode = lazy(() => import('@/pages/PaymentMode'));
 const Email = lazy(() => import('@/pages/Email/index'));
 const EmailRead = lazy(() => import('@/pages/Email/EmailRead'));
 const EmailUpdate = lazy(() => import('@/pages/Email/EmailUpdate'));
-const AdvancedSettings = lazy(() => import('@/pages/AdvancedSettings'));
+// const AdvancedSettings = lazy(() => import('@/pages/AdvancedSettings'));
 const Profile = lazy(() => import('@/pages/Profile'));
 const Lead = lazy(() => import('@/pages/Lead/index'));
 
@@ -106,10 +106,10 @@ export default function AppRouter() {
       path: '/email/update/:id',
       element: <EmailUpdate />,
     },
-    {
-      path: '/settings/advanced',
-      element: <AdvancedSettings />,
-    },
+    // {
+    //   path: '/settings/advanced',
+    //   element: <AdvancedSettings />,
+    // },
     {
       path: '/profile',
       element: <Profile />,

@@ -8,7 +8,7 @@ import {
 
 import TabsContent from '@/components/TabsContent/TabsContent';
 
-import CompanyLogoSettings from './CompanyLogoSettings';
+// import CompanyLogoSettings from './CompanyLogoSettings';
 import GeneralSettings from './GeneralSettings';
 import PaymentSettings from './PaymentSettings';
 import InvoiceSettings from './InvoiceSettings';
@@ -24,11 +24,11 @@ export default function Settings() {
       icon: <SettingOutlined />,
       children: <GeneralSettings />,
     },
-    {
-      label: translate('Company Logo'),
-      icon: <FileImageOutlined />,
-      children: <CompanyLogoSettings />,
-    },
+    // {
+    //   label: translate('Company Logo'),
+    //   icon: <FileImageOutlined />,
+    //   children: <CompanyLogoSettings />,
+    // },
     {
       label: translate('Currency Settings'),
       icon: <DollarOutlined />,
