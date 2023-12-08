@@ -10,7 +10,7 @@ export default ({ mode }) => {
   const proxy_url =
     process.env.VITE_DEV_REMOTE === 'remote'
       ? process.env.VITE_BACKEND_SERVER
-      : 'http://13.127.36.67:8888/';
+      : 'http://13.235.241.179/:8888/';
 
   const config = {
     plugins: [react()],
