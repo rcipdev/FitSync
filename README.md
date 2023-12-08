@@ -21,7 +21,7 @@ It is a common notion that we observe in our daily lives that individuals face c
 ## Pre-requisites:
 
 1. Install npm
-2. Install REact and Node
+2. Install React and Nodejs
 3. Configure and install MongoDB
 
 ## Getting started
@@ -29,11 +29,11 @@ It is a common notion that we observe in our daily lives that individuals face c
 #### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/idurar/idurar-erp-crm.git
+
 ```
 
 ```bash
-cd idurar-erp-crm
+
 ```
 
 #### Step 2: Create Your MongoDB Account and Database/Cluster
