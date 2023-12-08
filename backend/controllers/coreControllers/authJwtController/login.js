@@ -86,7 +86,6 @@ const login = async (req, res) => {
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
         secure: false,
         httpOnly: true,
-        signed: true,
       })
       .json({
         success: true,
