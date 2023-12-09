@@ -54,7 +54,6 @@ const login = async (req, res) => {
       });
 
     const isMatch = await bcrypt.compare(password, admin.password);
-    console.log(isMatch);
     if (!isMatch)
       return res.status(403).json({
         success: false,
@@ -77,8 +76,6 @@ const login = async (req, res) => {
         new: true,
       }
     ).exec();
-    console.log(token);
-    console.log(req.hostname);
     res
       .status(200)
       .header('Access-Control-Allow-Headers', '*')
