@@ -33,6 +33,10 @@ const leadSchema = new mongoose.Schema({
     default: 'I eat nothing',
   },
 
+  nutrients: {
+    type: String,
+  },
+
   client: {
     type: mongoose.Schema.ObjectId,
     ref: 'Client',

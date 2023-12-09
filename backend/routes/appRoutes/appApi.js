@@ -69,7 +69,7 @@ router.route('/client/filter').get(hasPermission('read'), catchErrors(clientCont
 router.route('/client/summary').get(hasPermission('read'), catchErrors(clientController.summary));
 
 //health data
-router.route('/lead/create').post(hasPermission('create'), catchErrors(leadController.create));
+router.route('/lead/create').post(hasPermission('create'), catchErrors(leadController.createLead));
 router.route('/lead/read/:id').get(hasPermission('read'), catchErrors(leadController.read));
 router.route('/lead/update/:id').patch(hasPermission('update'), catchErrors(leadController.update));
 router
@@ -77,7 +77,7 @@ router
   .delete(hasPermission('delete'), catchErrors(leadController.delete));
 router.route('/lead/list').get(hasPermission('read'), catchErrors(leadController.list));
 router.route('/lead/filter').get(hasPermission('read'), catchErrors(leadController.filter));
-router.route('/lead/summary').get(hasPermission('read'), catchErrors(leadController.summary));
+router.route('/lead/summary').get(hasPermission('read'), catchErrors(leadController.leadSummary));
 
 //budget routes
 router
