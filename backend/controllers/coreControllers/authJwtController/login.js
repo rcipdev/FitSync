@@ -78,13 +78,14 @@ const login = async (req, res) => {
       }
     ).exec();
     console.log(token);
-    console.log(result);
+    console.log(req.hostname);
     res
       .status(200)
       .header('Access-Control-Allow-Headers', '*')
       .cookie('token', token, {
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
         secure: false,
+        domain: req.hostname,
         httpOnly: false,
       })
       .json({
