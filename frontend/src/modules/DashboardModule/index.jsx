@@ -6,11 +6,10 @@ import { useMoney } from '@/settings';
 import { request } from '@/request';
 import useFetch from '@/hooks/useFetch';
 
-import RecentTable from './components/RecentTable';
+import RecentTable, { NutritionChart } from './components/RecentTable';
 
 import SummaryCard from './components/SummaryCard';
 import PreviewCard from './components/PreviewCard';
-import CustomerPreviewCard from './components/CustomerPreviewCard';
 
 export default function DashboardModule() {
   const translate = useLanguage();
@@ -121,7 +120,7 @@ export default function DashboardModule() {
         <SummaryCard
           title={translate('Due Balance')}
           tagColor={'red'}
-          prefix={translate('Not Paid')}
+          prefix={translate('Amount Left')}
           isLoading={invoiceLoading}
           tagContent={
             invoiceResult?.total_undue && moneyFormatter({ amount: invoiceResult?.total_undue })
@@ -133,12 +132,7 @@ export default function DashboardModule() {
         <Col className="gutter-row w-full" sm={{ span: 24 }} md={{ span: 24 }} lg={{ span: 18 }}>
           <div className="whiteBox shadow" style={{ height: 458 }}>
             <Row className="pad20" gutter={[0, 0]}>
-              {statisticCards}
-              <CustomerPreviewCard
-                isLoading={clientLoading}
-                activeCustomer={clientResult?.active}
-                newCustomer={clientResult?.new}
-              />
+              <NutritionChart entity={'lead'} />
             </Row>
           </div>
         </Col>

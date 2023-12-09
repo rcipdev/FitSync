@@ -46,12 +46,12 @@ export default function Lead() {
       dataIndex: 'dinner',
     },
     {
-      title: translate('Status'),
-      dataIndex: 'status',
-    },
-    {
       title: translate('Email'),
       dataIndex: 'email',
+    },
+    {
+      title: translate('Nutrients'),
+      dataIndex: 'nutrients',
     },
   ];
 
@@ -160,21 +160,8 @@ export default function Lead() {
       },
     },
     {
-      title: translate('Status'),
-      dataIndex: 'status',
-      render: (status) => {
-        let color =
-          status === 'Planned'
-            ? 'cyan'
-            : status === 'Under Consumed'
-            ? 'orange'
-            : status === 'Over Consumed'
-            ? 'red'
-            : status === 'Completed'
-            ? 'green'
-            : 'yellow';
-        return <Tag color={color}>{status && translate(status)}</Tag>;
-      },
+      title: translate('Nutrients'),
+      dataIndex: ['nutrients'],
     },
     // {
     //   title: translate('Email'),
