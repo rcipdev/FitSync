@@ -236,6 +236,20 @@ const request = {
         notifyOnSuccess: false,
         notifyOnFailed: false,
       });
+      return response.data;
+    } catch (error) {
+      return errorHandler(error);
+    }
+  },
+
+  leadsummary: async ({ entity, options = {} }) => {
+    try {
+      const response = await axios.get(entity + '/summary');
+
+      successHandler(response, {
+        notifyOnSuccess: false,
+        notifyOnFailed: false,
+      });
 
       return response.data;
     } catch (error) {

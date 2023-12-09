@@ -10,6 +10,7 @@ import useLanguage from '@/locale/useLanguage';
 import { useNavigate } from 'react-router-dom';
 import { DOWNLOAD_BASE_URL } from '@/config/serverApiConfig';
 import useResponsiveTable from '@/hooks/useResponsiveTable';
+import { Chart } from 'react-google-charts';
 
 export default function RecentTable({ ...props }) {
   const translate = useLanguage();
@@ -122,4 +123,32 @@ export default function RecentTable({ ...props }) {
       />
     </div>
   );
+}
+
+export function NutritionChart({ ...props }) {
+  const translate = useLanguage();
+  let { entity, dataTableColumns } = props;
+
+  const asyncList = () => {
+    return request.leadsummary({ entity });
+  };
+  const { result, isLoading, isSuccess } = useFetch(asyncList);
+  const cdata = [['User', 'Calories Consumed', 'Calories Burnt']];
+  if (result && result.length && result.length > 0)
+    result.forEach((data) => {
+      cdata.push([data.client.company, parseInt(data.nutrients), data.caloriesBurnt]);
+    });
+  const options = {
+    title: "Yesterday's Summary",
+    chartArea: { width: '50%' },
+    hAxis: {
+      title: 'Calories',
+      minValue: 0,
+    },
+    vAxis: {
+      title: 'User',
+    },
+  };
+
+  return <Chart chartType="BarChart" width="100%" height="400px" data={cdata} options={options} />;
 }
