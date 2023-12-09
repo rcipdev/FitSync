@@ -167,9 +167,6 @@ const summary = async (req, res) => {
           //   $gte: startDate.toDate(),
           //   $lte: endDate.toDate(),
           // },
-          paymentStatus: {
-            $in: ['unpaid', 'partially'],
-          },
         },
       },
       {
@@ -189,7 +186,6 @@ const summary = async (req, res) => {
         },
       },
     ]);
-
     const finalResult = {
       total: totalInvoices?.total,
       total_undue: unpaid.length > 0 ? unpaid[0].total_amount : 0,
