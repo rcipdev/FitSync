@@ -85,7 +85,6 @@ const login = async (req, res) => {
       .cookie('token', token, {
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
         secure: false,
-        domain: 'http://app.fitsync.cloud/',
         httpOnly: false,
       })
       .json({
