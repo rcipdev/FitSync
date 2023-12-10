@@ -106,6 +106,8 @@ const createCRUDController = (modelName) => {
         if (data.date.getDate() === datetoday) return data;
       });
 
+      console.log(result1);
+      console.log(result2);
       let finalres = [];
       result1.forEach((obj) => {
         let innerobj = result2.filter((iobj) => {
