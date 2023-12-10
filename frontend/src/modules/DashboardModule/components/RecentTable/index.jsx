@@ -139,7 +139,7 @@ export function NutritionChart({ ...props }) {
       cdata.push([data.client.company, parseInt(data.nutrients), data.caloriesBurnt]);
     });
   const options = {
-    title: "Yesterday's Summary",
+    title: 'Summary',
     chartArea: { width: '50%' },
     hAxis: {
       title: 'Calories',
