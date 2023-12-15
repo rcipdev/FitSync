@@ -28,14 +28,6 @@ It is a common notion that we observe in our daily lives that individuals face c
 
 #### Step 1: Clone the repository
 
-```bash
-
-```
-
-```bash
-
-```
-
 #### Step 2: Create Your MongoDB Account and Database/Cluster
 
 - Create your own MongoDB account by visiting the MongoDB website and signing up for a new account.
