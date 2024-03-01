@@ -108,6 +108,7 @@ Once the website is up and running, you can log in using the following credentia
 
 `username : admin@demo.com - password : admin123`
 
-Now you should be all set to run the project locally on your machine and explore its features.
+Now you should be all set to run the project locally on your machine.
+Explore its features.
 
 Will open browser to http://localhost:3000
