@@ -1,4 +1,4 @@
-provider "gcp" {
+provider "google" {
   region = "us-west4-b"
 }
 
