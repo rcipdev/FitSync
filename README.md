@@ -1,22 +1,25 @@
-FitSync - Project Documentation
+# FitSync - Project Documentation
 
-## University Details:
+## University Details
+- **University**: San Jose State University
+- **Course**: CMPE 281 - Cloud Technologies
+- **Professor**: Sanjay Garje
 
-San Jose State University
-Course: CMPE 281 - Cloud Technologies
-Professor: Sanjay Garje
+## Team OOPS404 - FitSync App
+- **Students**:
+  - Lekhna Gadde
+  - Sahiti
+  - Ruchik Pravasi
+  - Hemang Huria
 
-## Team - OOPS404 - FitSync app:
+## Project Introduction
+FitSync addresses a common challenge faced by individuals: tracking health and financial well-being simultaneously. There is a noticeable gap in the market for a comprehensive tool that integrates dietary choices and financial expenditures seamlessly. Existing applications focus solely on fitness or budget management, not both. FitSync aims to bridge this gap, helping users maintain a balanced and cost-effective lifestyle.
 
-Students:
-Lekhna Gadde
-Sahiti
-Ruchik Pravasi
-Hemang Huria
-
-## Project Introduction:
-
-It is a common notion that we observe in our daily lives that individuals face challenges in tracking their health and financial well being simultaneously. The absence of a comprehensive tool which is both user friendly and seamlessly integrated with your dietary choices and financial expenditures is noticeable. The core issue is that there is no application catering to both diet tracking as well as budget management. It is either a complete application about fitness or budget management. As a result individuals struggle to maintain a balanced and cost effective lifestyle.
+## Prerequisites
+- npm
+- React
+- Node.js
+- MongoDB
 
 ## Pre-requisites:
 
